@@ -1,0 +1,75 @@
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { postLogin } from "../../store/actions";
+import "./SignIn.css";
+
+const Signin = props => {
+  console.log("import props test:", props);
+  // const reduxState = useSelector(state => state)
+  // const dispatch = useDispatch()
+  const [form, setForm] = useState({ username: "admin", password: "password" });
+
+  const handleChange = e => {
+    e.preventDefault();
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.postLogin(form);
+    console.log("props test signin:", props);
+    // dispatch(postLogin())
+  };
+
+  console.log("form credentials", form);
+  return (
+    <div className="login">
+      <div className="formContainer">
+        <h1 className="formTitle">Welcome back!</h1>
+        <form onSubmit={handleSubmit} className="loginForm">
+          <p className="loginInputs">
+            <label>Username</label>
+            <input
+              onChange={handleChange}
+              type="text"
+              name="username"
+              placeholder="username"
+              value={form.username}
+            />
+          </p>
+          <p className="loginInputs">
+            <label>Password</label>
+            <input
+              onChange={handleChange}
+              type="password"
+              name="password"
+              placeholder="password"
+              value={form.password}
+            />
+          </p>
+
+          <button type="submit" className="loginSubmit">
+            Submit
+          </button>
+        </form>
+      </div>
+      <img
+        src="https://i.imgur.com/IUXZArW.jpg"
+        alt="Delicious Pasta"
+        className="loginImage"
+      />
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+    isLoading: state.isLoading
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { postLogin }
+)(Signin);
