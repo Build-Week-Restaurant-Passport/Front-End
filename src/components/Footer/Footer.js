@@ -1,13 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
+import styled from "styled-components";
 
 export default function Footer() {
   // Font type? Roboto
 
+  const Bulletlist = styled.li`
+    color: white;
+  `;
+
   return (
     <nav className="footer">
       {/* Logo- of fork and knife in red pin point*/}
+
+      {/* <Test>abc</Test> */}
 
       <div className="Logoholder">
         <img
@@ -17,24 +24,24 @@ export default function Footer() {
         />
       </div>
 
-      <navlinks className="navlinksbox">
+      <div className="navlinksbox">
         <NavLink className="navword" to="/privacypolicy">
           Privacy
         </NavLink>
 
-        <li className="bulletpoint">
+        <Bulletlist className="bulletpoint">
           <NavLink className="navword" to="/help">
             Help
           </NavLink>
-        </li>
+        </Bulletlist>
 
-        <li className="bulletpoint">
+        <Bulletlist className="bulletpoint">
           <NavLink className="navword" to="/aboutus">
             About Us
           </NavLink>
-        </li>
+        </Bulletlist>
 
-        <li>
+        <Bulletlist>
           <NavLink
             className="navword"
             activeClassName="active"
@@ -42,8 +49,8 @@ export default function Footer() {
           >
             Terms and Conditions
           </NavLink>
-        </li>
-      </navlinks>
+        </Bulletlist>
+      </div>
 
       <p className="copyright"> {"\u00A9"} 2019 RestaurantPassport</p>
     </nav>

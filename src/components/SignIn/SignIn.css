@@ -48,7 +48,12 @@
   background: #e65400;
 }
 
+.loginSubmit:hover {
+  margin-top: 0.7rem;
+}
+
 .formContainer {
   width: 40%;
-  margin: 0 auto;
+  margin: auto;
+  padding-bottom: 4rem;
 }

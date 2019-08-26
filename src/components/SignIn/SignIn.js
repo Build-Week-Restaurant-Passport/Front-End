@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postLogin } from "../../store/actions";
 import "./SignIn.css";
+import { ButtonContainer } from "../styled-components/Button";
 
 const Signin = props => {
   console.log("import props test:", props);
@@ -48,13 +49,11 @@ const Signin = props => {
             />
           </p>
 
-          <button type="submit" className="loginSubmit">
-            Submit
-          </button>
+          <ButtonContainer>Submit</ButtonContainer>
         </form>
       </div>
       <img
-        src="https://i.imgur.com/IUXZArW.jpg"
+        src="https://i.imgur.com/e5Ox46h.jpg"
         alt="Delicious Pasta"
         className="loginImage"
       />

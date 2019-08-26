@@ -4,8 +4,8 @@ export default function Passport({ passport }) {
   console.log(passport);
   return (
     <div>
-      <h3>{passport.city}</h3>
-      <p>{passport.country}</p>
+      {/* <h3>{passport.title}</h3> */}
+      {/* <p>{passport.body}</p> */}
     </div>
   );
 }

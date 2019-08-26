@@ -9,7 +9,7 @@ import SignIn from "../components/SignIn/SignIn";
 const Routes = () => {
   return (
     <div>
-      <Route exact path="/" component={SignIn} />
+      <Route exact path="/home" component={SignIn} />
       <Route exact path="/privacypolicy" component={PrivacyPolicy} />
       <PrivateRoute exact path="/passports" component={Passports} />
     </div>

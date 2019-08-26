@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeaderCSS.css";
 import { NavLink } from "react-router-dom";
+import { HeaderButton } from "../styled-components/Button";
 
 const Header = () => {
   return (
@@ -16,12 +17,12 @@ const Header = () => {
         </div>
       </div>
       <div className="buttonGroup">
-        <NavLink to="/Login" className="button" activeClassName="active">
-          <p> Login</p>
-        </NavLink>
-        <NavLink to="/" className="button" activeClassName="active">
+        <HeaderButton to="/signup">
           <p> Sign up</p>
-        </NavLink>
+        </HeaderButton>
+        <HeaderButton to="/home">
+          <p> Login</p>
+        </HeaderButton>
       </div>
     </header>
   );
