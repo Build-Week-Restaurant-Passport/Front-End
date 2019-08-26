@@ -3,12 +3,14 @@ import PrivateRoute from "./PrivateRoute";
 import { Route } from "react-router-dom";
 
 import Passports from "../components/Passports";
+import PrivacyPolicy from "../components/Pages/PrivacyPolicy";
+import SignIn from "../components/SignIn";
 
 const Routes = () => {
   return (
     <div>
-      <h1>Routes</h1>
-      {/* <Route exact path="/" component={Login} /> */}
+      <Route exact path="/" component={SignIn} />
+      <Route exact path="/privacypolicy" component={PrivacyPolicy} />
       <PrivateRoute exact path="/passports" component={Passports} />
     </div>
   );
