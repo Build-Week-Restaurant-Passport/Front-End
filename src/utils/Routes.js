@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 
 import Passports from "../components/Passports";
 import PrivacyPolicy from "../components/Pages/PrivacyPolicy";
-import SignIn from "../components/SignIn";
+import SignIn from "../components/SignIn/SignIn";
 
 const Routes = () => {
   return (
