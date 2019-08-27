@@ -1,0 +1,25 @@
+.login {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.loginForm {
+  background: #fffefa;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginInputs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-bottom: 1rem;
+}
+
+.title {
+  color: #e60800;
+  padding: 15px;
+}
