@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HeaderCSS.css";
 import { HeaderButton } from "../styled-components/Button";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header>
       <div className="logoContainer">
-        <Link className="linkStyle" to="/privacypolicy">
+        <Link className="linkStyle" to="/home">
           <div className="logo">
             <img
               className="logoImg"
@@ -19,10 +19,18 @@ const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="buttonGroup">
-        <HeaderButton to="/signup">Sign up</HeaderButton>
-        <HeaderButton to="/home">Login</HeaderButton>
-      </div>
+      {localStorage.getItem("token") === null ? (
+        <div className="buttonGroup">
+          <HeaderButton to="/signup">Sign up</HeaderButton>
+          <HeaderButton to="/home">Login</HeaderButton>
+        </div>
+      ) : (
+        <div className="buttonGroup">
+          <HeaderButton onClick={() => localStorage.removeItem("token")}>
+            Sign Out
+          </HeaderButton>
+        </div>
+      )}
     </header>
   );
 };

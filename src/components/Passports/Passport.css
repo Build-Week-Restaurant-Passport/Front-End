@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 0 auto;
 }
 
 .map-img {
@@ -28,64 +29,16 @@ form {
   border-radius: 5px;
 }
 
-.hr-text {
-  line-height: 1em;
-  position: relative;
-  outline: 0;
-  border: 0;
-  color: black;
-  text-align: center;
-  height: 1.5em;
-  opacity: 0.5;
-}
-.hr-text:before {
-  content: "";
-  background: linear-gradient(to right, transparent, #818078, transparent);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
+.h2-lines {
+  width: 60vw;
   height: 1px;
-}
-
-.hr-text:after {
-  content: attr(data-content);
-  position: relative;
-  display: inline-block;
-  color: black;
-
-  padding: 0 0.5em;
-  line-height: 1.5em;
-  color: #818078;
-  background-color: #fcfcfa;
-}
-
-/* h2 {
-  width: 80%;
   text-align: center;
-  border-bottom: 1px solid #000;
-  line-height: 0.1rem;
-  margin: 10px 0 20px;
+  background: #000;
+  margin: 25px 0 -40px 0;
 }
 
-h2 span {
-  background: #fff;
+h2 {
+  width: 12vw;
+  background: white;
   padding: 0 10px;
-} */
-
-/* h2 {
-  overflow: hidden;
-  text-align: center;
-  
 }
-
-h2:before,
-h2:after {
-  background-color: #000;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  position: relative;
-  vertical-align: middle;
-  width: 50%;
-} */

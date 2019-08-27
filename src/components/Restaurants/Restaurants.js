@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getRestaurants } from "../../store/actions";
 import Loader from "react-loader-spinner";
@@ -9,11 +9,14 @@ export default function Restaurants(props) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (state) {
+      dispatch(getRestaurants(state.latlng));
+    }
+  }, []);
+  console.log(state.latlng);
   return (
     <div>
-      <button onClick={() => dispatch(getRestaurants(state.latlng))}>
-        Get Restaurants
-      </button>
       <h2>Restaurants</h2>
       {state.isLoading === true ? (
         <Loader type="TailSpin" color="#e65400" height={80} width={80} />

@@ -8,13 +8,16 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import rootReducer from "./store/reducers";
 import "semantic-ui-css/semantic.min.css";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </Provider>
   </Router>,
   document.getElementById("root")

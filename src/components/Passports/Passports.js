@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLatLng } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
+import { Divider } from "semantic-ui-react";
 import "./Passport.css";
 import axios from "axios";
 
@@ -25,10 +26,10 @@ export default function Passports(props) {
       .get(
         `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address}`
       )
-      .then(res =>
-        dispatch(setLatLng(res.data.results[0].locations[0].latLng))
-      );
-    props.history.push("/restaurants");
+      .then(res => {
+        dispatch(setLatLng(res.data.results[0].locations[0].latLng));
+        props.history.push("/restaurants");
+      });
   };
 
   const getLocation = e => {
@@ -73,7 +74,8 @@ export default function Passports(props) {
           Create
         </ButtonContainer>
       </form>
-      <hr className="hr-text" data-content="or" />
+      <div className="h2-lines"></div>
+      <h2>or</h2>
       <a onClick={getLocation}>Use my current location</a>
       <p>(This will prompt you to enable your location services)</p>
     </div>

@@ -24,16 +24,18 @@ export const SET_LATLNG = "SET_LATLNG";
 
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
-  axios.post(
-    "https://efrain-restaurant.herokuapp.com/login",
-    `grant_type=password&username=${form.username}&password=${form.password}`,
-    {
-      headers: {
-        Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
-        "Content-Type": "application/x-www-form-urlencoded"
+  axios
+    .post(
+      "https://efrain-restaurant.herokuapp.com/login",
+      `grant_type=password&username=${form.username}&password=${form.password}`,
+      {
+        headers: {
+          Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       }
-    }
-  );
+    )
+    .then(res => console.log(res));
 };
 
 export const postRegister = form => dispatch => {

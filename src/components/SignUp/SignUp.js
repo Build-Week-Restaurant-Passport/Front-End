@@ -92,7 +92,7 @@ const SignUp = props => {
             <p className=" privacyText">
               By clicking Sign Up, you agree to our
             </p>
-            <NavLink to="/termsandconditions">
+            <NavLink to="/terms">
               <p className="privacyNav">Terms and Conditions</p>
             </NavLink>
             <p>and</p>

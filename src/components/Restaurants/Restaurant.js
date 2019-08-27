@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Item } from "semantic-ui-react";
+import { Segment, Item, Card, Image, Checkbox } from "semantic-ui-react";
 import "./Restaurants.css";
 
 export default function Restaurant({ restaurant }) {
@@ -9,8 +9,49 @@ export default function Restaurant({ restaurant }) {
   const price_range = restaurant.restaurant.price_range;
 
   return (
-    <div>
-      <Segment>
+    <Card>
+      <Image src={restaurant.restaurant.featured_image} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{restaurant.restaurant.name}</Card.Header>
+
+        <Card.Description>
+          <span>
+            {[...Array(price_range)].map((obj, index) => (
+              <i
+                className="fas fa-dollar-sign"
+                key={`${obj}?index=${index}`}
+              ></i>
+            ))}
+          </span>
+          &nbsp; &middot; &nbsp;
+          {restaurant.restaurant.cuisines} <br />
+          Address: {restaurant.restaurant.location.address}
+          <span>
+            {[...Array(starsCount)].map((obj, index) => (
+              <i
+                className="fas fa-star text-gold"
+                key={`${obj}?index=${index}`}
+              />
+            ))}
+          </span>
+          &nbsp; Menu : &nbsp;
+          <a
+            href={restaurant.restaurant.menu_url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fas fa-book-open"></i>
+          </a>
+          <br>
+            <Checkbox label="I've Been Here" />
+          </br>
+        </Card.Description>
+      </Card.Content>
+    </Card>
+  );
+}
+
+/* <Segment>
         <Item.Group>
           <Item>
             <Item.Image src={restaurant.restaurant.featured_image} />
@@ -48,7 +89,4 @@ export default function Restaurant({ restaurant }) {
             </Item.Content>
           </Item>
         </Item.Group>
-      </Segment>
-    </div>
-  );
-}
+      </Segment> */
