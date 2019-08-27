@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { postLogin } from "../../store/actions";
 import "./SignIn.css";
 import { ButtonContainer } from "../styled-components/Button";
+import { NavLink } from "react-router-dom";
 
 const Signin = props => {
   const [form, setForm] = useState({ username: "admin", password: "password" });
@@ -22,7 +23,7 @@ const Signin = props => {
     <div className="login">
       <div className="formContainer">
         <h1 className="formTitle">Welcome back!</h1>
-        <p className="signText">Sign in with your email and password.</p>
+        <p className="signinText">Sign in with your email and password.</p>
         <form onSubmit={handleSubmit} className="loginForm">
           <p className="loginInputs">
             <label>Username</label>
@@ -47,6 +48,12 @@ const Signin = props => {
 
           <ButtonContainer>Submit</ButtonContainer>
         </form>
+        <div className="signinTextContainer">
+          <p className=" signinTextForMobile">Don't have an account?</p>
+          <NavLink to="/signup">
+            <p className="signupNav">Sign up</p>
+          </NavLink>
+        </div>
       </div>
       <img
         src="https://i.imgur.com/e5Ox46h.jpg"
