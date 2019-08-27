@@ -18,13 +18,14 @@ export default function Passports(props) {
   useEffect(() => {
     dispatch(getPassports());
   }, [dispatch]);
-  console.log(state);
+  console.log(state.passports);
   return (
     <div>
       <h2>Passports</h2>
       {state.isLoading === true ? (
-        <Loader type="TailSpin" color="red" height={80} width={80} />
+        <Loader type="TailSpin" color="#e65400" height={80} width={80} />
       ) : (
+        state.passports &&
         state.passports.map((passport, index) => (
           <Passport key={index} passport={passport} />
         ))

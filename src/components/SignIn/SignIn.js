@@ -6,8 +6,7 @@ import { ButtonContainer } from "../styled-components/Button";
 
 const Signin = props => {
   console.log("import props test:", props);
-  // const reduxState = useSelector(state => state)
-  // const dispatch = useDispatch()
+
   const [form, setForm] = useState({ username: "admin", password: "password" });
 
   const handleChange = e => {
@@ -18,8 +17,7 @@ const Signin = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.postLogin(form);
-    console.log("props test signin:", props);
-    // dispatch(postLogin())
+    props.history.push("/passports");
   };
 
   console.log("form credentials", form);
