@@ -22,6 +22,10 @@ export const GET_PASSPORTS_START = "GET_PASSPORTS_START";
 export const GET_PASSPORTS_SUCCESS = "GET_PASSPORTS_SUCCESS";
 export const GET_PASSPORTS_FAILURE = "GET_PASSPORTS_FAILURE";
 
+export const GET_RESTAURANTS_START = "GET_RESTAURANTS_START";
+export const GET_RESTAURANTS_SUCCESS = "GET_RESTAURANTS_SUCCESS";
+export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
+
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
   axios
@@ -44,8 +48,9 @@ export const postLogin = form => dispatch => {
 
 export const postRegister = form => dispatch => {
   dispatch({ type: POST_REG_START });
+  console.log(form);
   axios
-    .post(`https://jsonplaceholder.typicode.com/posts/1`, form)
+    .post(`https://efrain-restaurant.herokuapp.com/users/user`, form)
     .then(res => {
       console.log("successful add:", res);
       dispatch({ type: POST_REG_SUCCESS, payload: res.data });
@@ -61,7 +66,7 @@ export const getPassports = props => {
     dispatch({ type: GET_PASSPORTS_START });
     axios
       .get(
-        `https://developers.zomato.com/api/v2.1/cities?q=San%20Francisco`,
+        `https://developers.zomato.com/api/v2.1/geocode?lat=28.538336&lon=-81.379234`,
         zomatoConfig
       )
       .then(res => {
@@ -69,6 +74,28 @@ export const getPassports = props => {
         dispatch({
           type: GET_PASSPORTS_SUCCESS,
           payload: res.data.location_suggestions
+        });
+      })
+      .catch(err => {
+        console.log("actions", err);
+        dispatch({ type: POST_REG_FAILURE, payload: err });
+      });
+  };
+};
+
+export const getRestaurants = props => {
+  return dispatch => {
+    dispatch({ type: GET_RESTAURANTS_START });
+    axios
+      .get(
+        `https://developers.zomato.com/api/v2.1/geocode?lat=28.538336&lon=-81.379234`,
+        zomatoConfig
+      )
+      .then(res => {
+        console.log("in actions", res.data.nearby_restaurants);
+        dispatch({
+          type: GET_RESTAURANTS_SUCCESS,
+          payload: res.data.nearby_restaurants
         });
       })
       .catch(err => {
