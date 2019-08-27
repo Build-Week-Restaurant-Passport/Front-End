@@ -79,6 +79,7 @@ export const setLatLng = props => {
 };
 
 export const getRestaurants = props => {
+  console.log(props);
   return dispatch => {
     dispatch({ type: GET_RESTAURANTS_START });
     axios

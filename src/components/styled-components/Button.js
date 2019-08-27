@@ -15,6 +15,11 @@ export const ButtonContainer = styled.button`
     background: #b09c9c;
     cursor: pointer;
   }
+  @media (max-width: 500px) {
+    width: 60vw;
+    height: 2.875rem;
+    font-size: 1.5rem;
+  }
 `;
 export const HeaderButton = styled(NavLink)`
   height: 30px;

@@ -57,15 +57,30 @@
   margin: auto;
   padding-bottom: 4rem;
 }
-
+.signText {
+  display: none;
+}
 @media (max-width: 500px) {
+  .formContainer {
+    width: 90%;
+  }
   .loginImage {
     display: none;
   }
   .loginForm {
-    width: 90%;
+    width: 90vw;
+    align-items: center;
   }
-  input {
-    width: 100%;
+
+  .formTitle {
+    width: 90vw;
+    padding: 1rem 1rem 0 1rem;
+  }
+  .signText {
+    display: block;
+  }
+  .loginForm input {
+    width: 80vw;
+    height: 3rem;
   }
 }

@@ -46,4 +46,7 @@ header {
   .title {
     font-size: 1.5rem;
   }
+  .logoContainer {
+    height: 12vh;
+  }
 }

@@ -22,6 +22,7 @@ const Signin = props => {
     <div className="login">
       <div className="formContainer">
         <h1 className="formTitle">Welcome back!</h1>
+        <p className="signText">Sign in with your email and password.</p>
         <form onSubmit={handleSubmit} className="loginForm">
           <p className="loginInputs">
             <label>Username</label>

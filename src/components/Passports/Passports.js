@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLatLng } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -12,6 +12,8 @@ export default function Passports(props) {
   const dispatch = useDispatch();
 
   const [address, setAddress] = useState("");
+  const [location, setLocation] = useState();
+  console.log("location", location);
 
   const handleChange = e => {
     e.preventDefault();
@@ -28,6 +30,24 @@ export default function Passports(props) {
         dispatch(setLatLng(res.data.results[0].locations[0].latLng))
       );
     props.history.push("/restaurants");
+  };
+
+  const getLocation = e => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  };
+
+  const showPosition = position => {
+    setLocation({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    });
+    if (location) {
+      dispatch(setLatLng(location));
+      props.history.push("/restaurants");
+      return console.log("location inside showPosition", location);
+    }
   };
 
   return (
@@ -47,7 +67,7 @@ export default function Passports(props) {
         </ButtonContainer>
       </form>
       <Divider horizontal>or</Divider>
-      <a>Use my current location</a>
+      <a onClick={getLocation}>Use my current location</a>
       <p>(This will prompt you to enable your location services)</p>
     </div>
   );
