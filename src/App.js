@@ -6,11 +6,13 @@ import Header from "./components/Nav/Header";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Routes />
+    <>
+      <div className="App">
+        <Header />
+        <Routes />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

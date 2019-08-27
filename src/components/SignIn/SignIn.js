@@ -46,7 +46,7 @@ const Signin = props => {
             />
           </p>
 
-          <ButtonContainer>Submit</ButtonContainer>
+          <ButtonContainer>Sign in</ButtonContainer>
         </form>
         <div className="signinTextContainer">
           <p className=" signinTextForMobile">Don't have an account?</p>

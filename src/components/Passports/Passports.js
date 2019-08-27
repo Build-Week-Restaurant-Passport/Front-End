@@ -56,6 +56,7 @@ export default function Passports(props) {
       <h3>What city do you want to create your passport for?</h3>
       <form onSubmit={handleSubmit}>
         <input
+          className="passport-input"
           onChange={handleChange}
           type="text"
           name="address"

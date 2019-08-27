@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { postRegister } from "../../store/actions";
 import { connect } from "react-redux";
 import "./SignUp.css";
+import { NavLink } from "react-router-dom";
 
 const SignUp = props => {
   const [form, setForm] = useState({ username: "admin", password: "password" });
@@ -13,26 +14,60 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.postRegister(form);
+    if (form.password !== form.confirmPassword) {
+      alert("The passwords doesn't match");
+      return false; // The form won't submit
+    } else return true; // The form will submit
   };
 
   return (
     <div className="login">
       <div className="formContainer">
         <h1 className="title">Sign Up</h1>
-        <p>Already Have an Account Sign In</p>
+
+        <div className="signinTextContainer">
+          <p className=" signinTextForMobile">Already Have an Account</p>
+          <NavLink to="/home">
+            <p className="signupNav">Sign up</p>
+          </NavLink>
+        </div>
+
         <form onSubmit={handleSubmit} className="loginForm">
           <p className="loginInputs">
-            <label>username</label>
+            <label>First Name</label>
             <input
               onChange={handleChange}
               type="text"
-              name="username"
-              placeholder="username"
-              value={form.username}
+              name="firstname"
+              placeholder="First Name"
+              value={form.firstname}
             />
           </p>
           <p className="loginInputs">
-            <label>password</label>
+            <label>Last Name</label>
+            <input
+              onChange={handleChange}
+              type="text"
+              name="lastname"
+              placeholder="Last Name"
+              value={form.lastname}
+            />
+          </p>
+          <p className="loginInputs">
+            <label>Email</label>
+
+            <input
+              onChange={handleChange}
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+            />
+          </p>
+
+          <p className="loginInputs">
+            <label>Password</label>
+
             <input
               onChange={handleChange}
               type="password"
@@ -41,46 +76,28 @@ const SignUp = props => {
               value={form.password}
             />
           </p>
-          {/* <p className="loginInputs">
-            <label>password</label>
+
+          <p className="loginInputs">
+            <label>Confirm Password</label>
 
             <input
               onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="email"
-              value={form.password}
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={form.confirmPassword}
             />
-          </p> */}
-
-          {/* <p className="loginInputs">
-            <label>password</label>
-
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="email"
-              value={form.password}
-            />
-          </p> */}
-
-          {/* <p className="loginInputs">
-            <label>password</label>
-
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="email"
-              value={form.password}
-            />
-          </p> */}
+          </p>
           <button className="loginSubmit" type="submit">
             Submit
           </button>
         </form>
       </div>
+      <img
+        src="https://i.imgur.com/FQIAJte.jpg"
+        alt="Delicious Pasta"
+        className="loginImage"
+      />
     </div>
   );
 };

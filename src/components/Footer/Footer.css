@@ -16,7 +16,7 @@
   transition: all ease-in 0.3s;
 }
 
-.navword:hover {
+.navword a:hover {
   color: black;
 }
 

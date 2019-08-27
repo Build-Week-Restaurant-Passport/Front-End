@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import styled from "styled-components";
 
@@ -25,30 +25,30 @@ export default function Footer() {
       </div>
 
       <div className="navlinksbox">
-        <NavLink className="navword" to="/privacypolicy">
+        <Link className="navword" to="/privacypolicy">
           Privacy
-        </NavLink>
+        </Link>
 
         <Bulletlist className="bulletpoint">
-          <NavLink className="navword" to="/help">
+          <Link className="navword" to="/help">
             Help
-          </NavLink>
+          </Link>
         </Bulletlist>
 
         <Bulletlist className="bulletpoint">
-          <NavLink className="navword" to="/aboutus">
+          <Link className="navword" to="/aboutus">
             About Us
-          </NavLink>
+          </Link>
         </Bulletlist>
 
         <Bulletlist>
-          <NavLink
+          <Link
             className="navword"
             activeClassName="active"
             to="/termsandconditions"
           >
             Terms and Conditions
-          </NavLink>
+          </Link>
         </Bulletlist>
       </div>
 
