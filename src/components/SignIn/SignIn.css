@@ -72,6 +72,9 @@ label {
   color: #e65400;
   text-decoration: underline;
 }
+.signinText {
+  text-align: center;
+}
 @media (max-width: 500px) {
   .formContainer {
     width: 90%;

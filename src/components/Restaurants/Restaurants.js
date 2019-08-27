@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getRestaurants } from "../../store/actions";
 import Loader from "react-loader-spinner";

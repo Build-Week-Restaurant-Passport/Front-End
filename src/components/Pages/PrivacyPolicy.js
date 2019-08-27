@@ -1,10 +1,10 @@
 import React from "react";
-
+import "./PrivacyPolicy.css";
 function PrivacyPolicy() {
   // Privacy Policy Page
   return (
     <div className="privacy-page">
-      <h1>Privacy Policy of Restaurant Passport</h1>
+      <h1 className="pc-h1">Privacy Policy of Restaurant Passport</h1>
       <br />
       <p>
         This page is used to inform website visitors regarding our policies with
@@ -21,11 +21,17 @@ function PrivacyPolicy() {
         <br />
         The terms used in this Privacy Policy have the same meanings as in our
         Terms and Conditions, which is accessible at
-        https://restaurants-nearby.netlify.com/, unless otherwise defined in
-        this Privacy Policy.
+        <a
+          className="pc-a"
+          href=">https://restaurants-nearby.netlify.com"
+          target="_blank"
+        >
+          https://restaurants-nearby.netlify.com/
+        </a>
+        , unless otherwise defined in this Privacy Policy.
       </p>
       <br />
-      <h1>Information Collection and Use</h1>
+      <h2 className="pc-h2">Information Collection and Use</h2>
       <br />
       <p>
         For a better experience while using our Service, we may require you to
@@ -34,7 +40,7 @@ function PrivacyPolicy() {
         information that we collect will be used to contact or identify you.
       </p>
       <br />
-      <h1>Log Data</h1>
+      <h2 className="pc-h2">Log Data</h2>
       <br />
       <p>
         We want to inform you that whenever you visit our Service, we collect
@@ -45,7 +51,7 @@ function PrivacyPolicy() {
         and other statistics.
       </p>
       <br />
-      <h1>Cookies</h1>
+      <h2 className="pc-h2">Cookies</h2>
       <br />
       <p>
         Cookies are files with small amount of data that is commonly used an
@@ -62,7 +68,7 @@ function PrivacyPolicy() {
         <br />
       </p>
       <br />
-      <h1>Service Providers</h1>
+      <h2 className="pc-h2">Service Providers</h2>
       <br />
       <p>
         We may employ third-party companies and individuals due to the following
@@ -83,7 +89,7 @@ function PrivacyPolicy() {
         disclose or use the information for any other purpose.
       </p>
       <br />
-      <h1>Security</h1>
+      <h2 className="pc-h2">Security</h2>
       <br />
       <p>
         We value your trust in providing us your Personal Information, thus we
@@ -93,7 +99,7 @@ function PrivacyPolicy() {
         its absolute security.
       </p>
       <br />
-      <h1>Links to Other Sites</h1>
+      <h2 className="pc-h2">Links to Other Sites</h2>
       <br />
       <p>
         Our Service may contain links to other sites. If you click on a
@@ -104,7 +110,7 @@ function PrivacyPolicy() {
         practices of any third-party sites or services.
       </p>
       <br />
-      <p>Children's Privacy</p>
+      <h2 className="pc-h2">Children's Privacy</h2>
       <br />
       <p>
         Our Services do not address anyone under the age of 13. We do not
@@ -116,7 +122,7 @@ function PrivacyPolicy() {
         be able to do necessary actions.
       </p>
       <br />
-      <h1>Changes to This Privacy Policy</h1>
+      <h2 className="pc-h2">Changes to This Privacy Policy</h2>
       <br />
       <p>
         We may update our Privacy Policy from time to time. Thus, we advise you
@@ -125,7 +131,7 @@ function PrivacyPolicy() {
         changes are effective immediately, after they are posted on this page.
       </p>
       <br />
-      <h1>Contact Us</h1>
+      <h2 className="pc-h2">Contact Us</h2>
       <br />
       <p>
         If you have any questions or suggestions about our Privacy Policy, do

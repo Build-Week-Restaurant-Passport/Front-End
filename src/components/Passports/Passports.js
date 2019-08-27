@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLatLng } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
-import { Divider } from "semantic-ui-react";
 import "./Passport.css";
 import axios from "axios";
 
@@ -53,8 +52,15 @@ export default function Passports(props) {
   return (
     <div className="passportContainer">
       <h1>Congrats! You're almost there!</h1>
-      <h3>What city do you want to create your passport for?</h3>
-      <form onSubmit={handleSubmit}>
+      <h3 className="testing">
+        What city do you want to create <br /> your passport for?
+      </h3>
+      <img
+        className="map-img"
+        src="https://i.imgur.com/AiqKGkF.png"
+        alt="Delicious Pasta"
+      />
+      <form classname="passport-form" onSubmit={handleSubmit}>
         <input
           className="passport-input"
           onChange={handleChange}
@@ -67,7 +73,7 @@ export default function Passports(props) {
           Create
         </ButtonContainer>
       </form>
-      <Divider horizontal>or</Divider>
+      <hr className="hr-text" data-content="or" />
       <a onClick={getLocation}>Use my current location</a>
       <p>(This will prompt you to enable your location services)</p>
     </div>

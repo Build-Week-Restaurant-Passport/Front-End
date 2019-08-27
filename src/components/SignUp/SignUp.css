@@ -3,9 +3,7 @@
   display: flex;
   font-family: "Roboto", sans-serif;
 }
-.title {
-  margin: 0 auto;
-}
+
 .loginForm {
   background: #fffefa;
   font-size: 0.7rem;
@@ -20,10 +18,12 @@
   clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.formTitle {
+.formtitle {
   background: #fffefa;
   padding: 1rem 1rem 0 1rem;
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .loginForm input {
@@ -75,7 +75,16 @@ label {
   color: #e65400;
   text-decoration: underline;
 }
-
+.privacyTextContainer {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.privacyNav {
+  margin: 0 3px;
+  text-decoration: underline;
+}
 @media (max-width: 500px) {
   .formContainer {
     width: 90%;
@@ -97,5 +106,10 @@ label {
   }
   label {
     font-size: 1rem;
+  }
+  .loginSubmit {
+    width: 60vw;
+    height: 2.875rem;
+    font-size: 1.5rem;
   }
 }

@@ -15,7 +15,7 @@ const Header = () => {
               alt="logo"
             />
 
-            <h1 className="title">RESTAURANTPASSPORT</h1>
+            <h1 className="headertitle">RESTAURANTPASSPORT</h1>
           </div>
         </Link>
       </div>

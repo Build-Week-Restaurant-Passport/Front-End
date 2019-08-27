@@ -23,12 +23,12 @@ const SignUp = props => {
   return (
     <div className="login">
       <div className="formContainer">
-        <h1 className="title">Sign Up</h1>
+        <p className="formtitle">Sign Up</p>
 
         <div className="signinTextContainer">
-          <p className=" signinTextForMobile">Already Have an Account</p>
+          <p className=" signinTextForMobile">Already Have an Account?</p>
           <NavLink to="/home">
-            <p className="signupNav">Sign up</p>
+            <p className="signupNav">Sign in</p>
           </NavLink>
         </div>
 
@@ -88,8 +88,20 @@ const SignUp = props => {
               value={form.confirmPassword}
             />
           </p>
+          <div className="privacyTextContainer">
+            <p className=" privacyText">
+              By clicking Sign Up, you agree to our
+            </p>
+            <NavLink to="/termsandconditions">
+              <p className="privacyNav">Terms and Conditions</p>
+            </NavLink>
+            <p>and</p>
+            <NavLink to="/privacypolicy">
+              <p className="privacyNav">Privacy Statement</p>
+            </NavLink>
+          </div>
           <button className="loginSubmit" type="submit">
-            Submit
+            Continue
           </button>
         </form>
       </div>

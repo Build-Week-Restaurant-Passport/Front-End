@@ -30,7 +30,7 @@ export default function Footer() {
         </Link>
 
         <Bulletlist className="bulletpoint">
-          <Link className="navword" to="/help">
+          <Link className="navword" to="/contact">
             Help
           </Link>
         </Bulletlist>
@@ -42,11 +42,7 @@ export default function Footer() {
         </Bulletlist>
 
         <Bulletlist>
-          <Link
-            className="navword"
-            activeClassName="active"
-            to="/termsandconditions"
-          >
+          <Link className="navword" activeClassName="active" to="/terms">
             Terms and Conditions
           </Link>
         </Bulletlist>
