@@ -5,8 +5,6 @@ import "./SignIn.css";
 import { ButtonContainer } from "../styled-components/Button";
 
 const Signin = props => {
-  console.log("import props test:", props);
-
   const [form, setForm] = useState({ username: "admin", password: "password" });
 
   const handleChange = e => {
@@ -20,7 +18,6 @@ const Signin = props => {
     props.history.push("/passports");
   };
 
-  console.log("form credentials", form);
   return (
     <div className="login">
       <div className="formContainer">

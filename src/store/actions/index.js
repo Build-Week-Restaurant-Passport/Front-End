@@ -1,13 +1,7 @@
 import axios from "axios";
-import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const zomatoConfig = {
   headers: { "user-key": "d8b6f250d68c7aff34c7a638eeeeef4e" }
-};
-
-const headers = {
-  Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
-  "Content-Type": "application/x-www-form-urlencode"
 };
 
 export const POST_DATA_START = "POST_DATA_START";
@@ -28,27 +22,20 @@ export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
 
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
-  axios
-    .post(
-      "https://efrain-restaurant.herokuapp.com/login",
-      `grant_type=password&username=${form.username}&password=${form.password}`,
-      {
-        headers: {
-          Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+  axios.post(
+    "https://efrain-restaurant.herokuapp.com/login",
+    `grant_type=password&username=${form.username}&password=${form.password}`,
+    {
+      headers: {
+        Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    )
-    .then(res => {
-      //   localStorage.setItem("token", res.data.access_token);
-      console.log("res", res);
-    })
-    .catch(err => console.log(err));
+    }
+  );
 };
 
 export const postRegister = form => dispatch => {
   dispatch({ type: POST_REG_START });
-  console.log(form);
   axios
     .post(`https://efrain-restaurant.herokuapp.com/users/user`, form)
     .then(res => {
@@ -92,7 +79,6 @@ export const getRestaurants = props => {
         zomatoConfig
       )
       .then(res => {
-        console.log("in actions", res.data.nearby_restaurants);
         dispatch({
           type: GET_RESTAURANTS_SUCCESS,
           payload: res.data.nearby_restaurants
