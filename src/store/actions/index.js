@@ -20,6 +20,8 @@ export const GET_RESTAURANTS_START = "GET_RESTAURANTS_START";
 export const GET_RESTAURANTS_SUCCESS = "GET_RESTAURANTS_SUCCESS";
 export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
 
+export const SET_LATLNG = "SET_LATLNG";
+
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
   axios.post(
@@ -70,12 +72,18 @@ export const getPassports = props => {
   };
 };
 
+export const setLatLng = props => {
+  return dispatch => {
+    dispatch({ type: SET_LATLNG, payload: props });
+  };
+};
+
 export const getRestaurants = props => {
   return dispatch => {
     dispatch({ type: GET_RESTAURANTS_START });
     axios
       .get(
-        `https://developers.zomato.com/api/v2.1/geocode?lat=28.538336&lon=-81.379234`,
+        `https://developers.zomato.com/api/v2.1/geocode?lat=${props.lat}&lon=${props.lng}`,
         zomatoConfig
       )
       .then(res => {

@@ -13,11 +13,7 @@ export default function Restaurant({ restaurant }) {
       <Segment>
         <Item.Group>
           <Item>
-            <Item.Image
-              size="tiny"
-              circular
-              src={restaurant.restaurant.featured_image}
-            />
+            <Item.Image src={restaurant.restaurant.featured_image} />
             <Item.Content>
               <Item.Header>{restaurant.restaurant.name}</Item.Header>
               <Item.Description>

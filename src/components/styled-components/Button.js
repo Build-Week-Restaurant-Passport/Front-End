@@ -23,6 +23,7 @@ export const HeaderButton = styled(NavLink)`
   color: #e60800;
   text-align: center;
   text-decoration: none;
+  line-height: 2rem;
   &:hover {
     background-color: #e60800;
     color: white;
@@ -31,5 +32,8 @@ export const HeaderButton = styled(NavLink)`
     text-decoration: none;
     background-color: #e60800;
     color: white;
+  }
+  @media (max-width: 500px) {
+    display: none;
   }
 `;

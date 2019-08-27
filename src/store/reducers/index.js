@@ -10,7 +10,8 @@ import {
   GET_PASSPORTS_FAILURE,
   GET_RESTAURANTS_START,
   GET_RESTAURANTS_SUCCESS,
-  GET_RESTAURANTS_FAILURE
+  GET_RESTAURANTS_FAILURE,
+  SET_LATLNG
 } from "../actions";
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   passports: [],
   isLoading: false,
   restaurants: [],
+  latlng: {},
   error: ""
 };
 
@@ -101,6 +103,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         error: action.payload,
         isLoading: false
+      };
+    case SET_LATLNG:
+      return {
+        ...state,
+        latlng: action.payload
       };
     default:
       return state;

@@ -12,16 +12,12 @@ const Header = () => {
             src="https://i.imgur.com/Db8MBpg.png"
             alt="logo"
           />
-          <h1>RESTAURANTPASSPORT</h1>
+          <h1 className="title">RESTAURANTPASSPORT</h1>
         </div>
       </div>
       <div className="buttonGroup">
-        <HeaderButton to="/signup">
-          <p> Sign up</p>
-        </HeaderButton>
-        <HeaderButton to="/home">
-          <p> Login</p>
-        </HeaderButton>
+        <HeaderButton to="/signup">Sign up</HeaderButton>
+        <HeaderButton to="/home">Login</HeaderButton>
       </div>
     </header>
   );
