@@ -13,7 +13,10 @@ import {
   GET_RESTAURANTS_FAILURE,
   ADD_PASSPORTS,
   SET_LATLNG,
-  SET_VISIT
+  SET_VISIT,
+  DELTE_PASSPORT,
+  DELETE_PASSPORT_SUCCESS,
+  DELETE_PASSPORT_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -132,6 +135,14 @@ function rootReducer(state = initialState, action) {
       return {
         ...temp
       };
+      case "DELETE_PASSPORT":
+        return {
+          ...state,
+          myPassports: state.myPassports.filter(()),
+          isLoading: true,
+        }
+        case "DELETE_PASSPORT_SUCCESS":
+          
     default:
       return state;
   }

@@ -26,6 +26,8 @@ export const SET_LATLNG = "SET_LATLNG";
 
 export const SET_VISIT = "SET_VISIT";
 
+export const DELTE_PASSPORT = "DELETE_PASSPORT";
+
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
   axios
@@ -43,6 +45,7 @@ export const postLogin = form => dispatch => {
 };
 
 export const postRegister = form => dispatch => {
+  console.log("post Regist");
   dispatch({ type: POST_REG_START });
   axios
     .post(`https://efrain-restaurant.herokuapp.com/users/user`, form)

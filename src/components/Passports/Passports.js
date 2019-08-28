@@ -45,34 +45,47 @@ export default function Passports(props) {
     }
   };
 
+  const deletePassport = e => {
+    e.preventDefault();
+    dispatch({ type: "DELETE_PASSPORT" });
+  };
+
   return (
-    <div className="passportContainer">
-      <h1>Congrats! You're almost there!</h1>
-      <h3 className="testing">
-        What city do you want to create <br /> your passport for?
-      </h3>
-      <img
-        className="map-img"
-        src="https://i.imgur.com/AiqKGkF.png"
-        alt="Delicious Pasta"
-      />
-      <form classname="passport-form" onSubmit={handleSubmit}>
-        <input
-          className="passport-input"
-          onChange={handleChange}
-          type="text"
-          name="address"
-          placeholder="Washington, DC"
-          value={address}
+    <div>
+      <div className="passportContainer">
+        <h1>Congrats! You're almost there!</h1>
+        <h3 className="testing">
+          What city do you want to create <br /> your passport for?
+        </h3>
+        <img
+          className="map-img"
+          src="https://i.imgur.com/AiqKGkF.png"
+          alt="Delicious Pasta"
         />
-        <ButtonContainer type="submit" onSubmit={handleSubmit}>
-          Create
-        </ButtonContainer>
-      </form>
-      <div className="h2-lines"></div>
-      <h2>or</h2>
-      <a onClick={getLocation}>Use my current location</a>
-      <p>(This will prompt you to enable your location services)</p>
+
+        <form classname="passport-form" onSubmit={handleSubmit}>
+          <input
+            className="passport-input"
+            onChange={handleChange}
+            type="text"
+            name="address"
+            placeholder="Washington, DC"
+            value={address}
+          />
+          <ButtonContainer type="submit" onSubmit={handleSubmit}>
+            Create
+          </ButtonContainer>
+        </form>
+        <div className="h2-lines"></div>
+        <h2>or</h2>
+        <a onClick={getLocation}>Use my current location</a>
+        <p>(This will prompt you to enable your location services)</p>
+      </div>
+      <img
+        src="https://i.imgur.com/FQIAJte.jpg"
+        alt="Delicious Pasta"
+        className="passportImage"
+      />
     </div>
   );
 }

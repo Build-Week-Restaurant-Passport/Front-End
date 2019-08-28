@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 import Passports from "../components/Passports/Passports";
 import PrivacyPolicy from "../components/Pages/PrivacyPolicy";
@@ -9,6 +10,7 @@ import Restaurants from "../components/Restaurants/Restaurants";
 import FormikContactUs from "../components/Pages/Contact";
 import Terms from "../components/Pages/Terms";
 import MyPassports from "../components/Passports/MyPassports/MyPassports.js";
+import RestaurantPage from "../components/Restaurants/RestaurantPage";
 
 const Routes = () => {
   return (
@@ -16,11 +18,15 @@ const Routes = () => {
       <Route path="/home" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/privacypolicy" component={PrivacyPolicy} />
-      <Route path="/passports" component={Passports} />
-      <Route path="/mypassports" component={MyPassports} />
-      <Route path="/restaurants" component={Restaurants} />
+      <PrivateRoute path="/passports" component={Passports} />
+      <PrivateRoute path="/mypassports" component={MyPassports} />
+      <PrivateRoute path="/restaurants" component={Restaurants} />
       <Route path="/contact" component={FormikContactUs} />
       <Route path="/terms" component={Terms} />
+      <PrivateRoute
+        path="/restaurant/:restaurantID"
+        component={RestaurantPage}
+      />
     </div>
   );
 };

@@ -1,44 +1,61 @@
-.passportContainer {
+.passport-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 0 auto;
 }
 
-.map-img {
-  margin: 20px 0;
+.passportImage {
+  height: auto;
+  width: 60%;
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  position: relative;
 }
 
-.testing {
-  margin-top: 0;
-}
+@media (max-width: 500px) {
+  .passportContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-img {
-  height: 150px;
-  width: 300px;
-}
+  .map-img {
+    margin: 20px 0;
+  }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+  .testing {
+    margin-top: 0;
+  }
 
-.passport-input {
-  padding: 10px;
-  border-radius: 5px;
-}
+  img {
+    height: 150px;
+    width: 300px;
+  }
 
-.h2-lines {
-  width: 60vw;
-  height: 1px;
-  text-align: center;
-  background: #000;
-  margin: 25px 0 -40px 0;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 
-h2 {
-  width: 12vw;
-  background: white;
-  padding: 0 10px;
+  .passport-input {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .h2-lines {
+    width: 60vw;
+    height: 1px;
+    text-align: center;
+    background: #000;
+    margin: 25px 0 -40px 0;
+  }
+
+  h2 {
+    width: 12vw;
+    background: white;
+    padding: 0 10px;
+  }
+
+  .passportImage {
+    display: none;
+  }
 }

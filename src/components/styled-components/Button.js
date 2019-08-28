@@ -21,6 +21,7 @@ export const ButtonContainer = styled.button`
     font-size: 1.5rem;
   }
 `;
+
 export const HeaderButton = styled(NavLink)`
   height: 30px;
   width: 120px;
@@ -40,5 +41,27 @@ export const HeaderButton = styled(NavLink)`
   }
   @media (max-width: 500px) {
     display: none;
+  }
+`;
+
+export const LoadMoreButton = styled(NavLink)`
+  @media (max-width: 500px) {
+    background: #e65400;
+    height: 30px;
+    width: 220px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2rem;
+    &:hover {
+      background: #ffae80;
+      color: white;
+    }
+    &:active {
+      text-decoration: none;
+      background-color: 
+      color: white;
+    }
   }
 `;

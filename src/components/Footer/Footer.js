@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import styled from "styled-components";
+import { LoadMoreButton } from "../styled-components/Button";
 
 export default function Footer() {
   // Font type? Roboto
@@ -10,11 +11,33 @@ export default function Footer() {
     color: white;
   `;
 
+  const BulletGroup = styled.div`
+    display: flex;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column
+    border: 2px solid red;
+  }
+  `;
+
+  const BtnFooter = styled.div`
+    display: none;
+
+    @media screen and (max-width: 500px) {
+      display: flex;
+      justify-content: center;
+      background: white;
+      padding: 20px;
+    }
+  `;
+
   return (
     <nav className="footer">
-      {/* Logo- of fork and knife in red pin point*/}
+      <BtnFooter>
+        <LoadMoreButton>Load More</LoadMoreButton>
+      </BtnFooter>
 
-      {/* <Test>abc</Test> */}
+      {/* Logo- of fork and knife in red pin point*/}
 
       <div className="Logoholder">
         <img
@@ -41,11 +64,13 @@ export default function Footer() {
           </Link>
         </Bulletlist>
 
-        <Bulletlist>
-          <Link className="navword" activeClassName="active" to="/terms">
-            Terms and Conditions
-          </Link>
-        </Bulletlist>
+        <BulletGroup>
+          <Bulletlist>
+            <Link className="navword" activeClassName="active" to="/terms">
+              Terms and Conditions
+            </Link>
+          </Bulletlist>
+        </BulletGroup>
       </div>
 
       <p className="copyright"> {"\u00A9"} 2019 RestaurantPassport</p>

@@ -1,3 +1,46 @@
+.restaurantPage {
+  display: flex;
+}
+
+.sideOne {
+  width: 60%;
+}
+
+.sideOne img {
+  width: 100%;
+  height: 100%;
+}
+
+.sideTwo {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 1rem;
+}
+
+.stars {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
 .sameSize {
   min-height: 25rem !important;
 }
@@ -6,17 +49,6 @@
   min-height: 10rem;
   max-height: 5rem;
 }
-.sc-htpNat.fedyOr {
-  width: 28%;
-  margin: 20px 10px;
-}
-@media (max-width: 800px) {
-  .sc-htpNat.fedyOr {
-    width: 40%;
-  }
-}
-@media (max-width: 500px) {
-  .sc-htpNat.fedyOr {
-    width: 80%;
-  }
+.sc-bxivhb.gKUblN {
+  width: 100%;
 }
