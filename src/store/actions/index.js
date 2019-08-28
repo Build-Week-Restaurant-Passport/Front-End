@@ -20,7 +20,11 @@ export const GET_RESTAURANTS_START = "GET_RESTAURANTS_START";
 export const GET_RESTAURANTS_SUCCESS = "GET_RESTAURANTS_SUCCESS";
 export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
 
+export const ADD_PASSPORTS = "ADD_PASSPORTS";
+
 export const SET_LATLNG = "SET_LATLNG";
+
+export const SET_VISIT = "SET_VISIT";
 
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
@@ -52,6 +56,21 @@ export const postRegister = form => dispatch => {
     });
 };
 
+// export const getCities = ({ props, address }) => {
+//   return dispatch => {
+//     dispatch({ type: "GET_CITES" });
+//     axios
+//       .get(
+//         `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address}`
+//       )
+//       .then(res => {
+//         // dispatch();
+//         // dispatch(setLatLng(res.data.results[0].locations[0].latLng));
+//         props.history.push("/restaurants");
+//       });
+//   };
+// };
+
 export const getPassports = props => {
   return dispatch => {
     dispatch({ type: GET_PASSPORTS_START });
@@ -71,6 +90,12 @@ export const getPassports = props => {
         console.log("actions", err);
         dispatch({ type: POST_REG_FAILURE, payload: err });
       });
+  };
+};
+
+export const addPassports = props => {
+  return dispatch => {
+    dispatch({ type: ADD_PASSPORTS, payload: props });
   };
 };
 
@@ -99,5 +124,12 @@ export const getRestaurants = props => {
         console.log("actions", err);
         dispatch({ type: POST_REG_FAILURE, payload: err });
       });
+  };
+};
+
+export const setVisit = props => {
+  console.log("setvisit action", props);
+  return dispatch => {
+    dispatch({ type: SET_VISIT, payload: props });
   };
 };

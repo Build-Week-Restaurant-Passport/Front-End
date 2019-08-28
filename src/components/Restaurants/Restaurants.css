@@ -1,3 +1,22 @@
-.ui.segment {
-  margin-bottom: 1rem !important;
+.sameSize {
+  min-height: 25rem !important;
+}
+
+.sameSizeImages img {
+  min-height: 10rem;
+  max-height: 5rem;
+}
+.sc-htpNat.fedyOr {
+  width: 28%;
+  margin: 20px 10px;
+}
+@media (max-width: 800px) {
+  .sc-htpNat.fedyOr {
+    width: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .sc-htpNat.fedyOr {
+    width: 80%;
+  }
 }

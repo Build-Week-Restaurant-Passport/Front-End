@@ -8,6 +8,7 @@ import SignUp from "../components/SignUp/SignUp";
 import Restaurants from "../components/Restaurants/Restaurants";
 import FormikContactUs from "../components/Pages/Contact";
 import Terms from "../components/Pages/Terms";
+import MyPassports from "../components/Passports/MyPassports/MyPassports.js";
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
       <Route path="/signup" component={SignUp} />
       <Route path="/privacypolicy" component={PrivacyPolicy} />
       <Route path="/passports" component={Passports} />
+      <Route path="/mypassports" component={MyPassports} />
       <Route path="/restaurants" component={Restaurants} />
       <Route path="/contact" component={FormikContactUs} />
       <Route path="/terms" component={Terms} />

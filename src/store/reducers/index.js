@@ -11,16 +11,20 @@ import {
   GET_RESTAURANTS_START,
   GET_RESTAURANTS_SUCCESS,
   GET_RESTAURANTS_FAILURE,
-  SET_LATLNG
+  ADD_PASSPORTS,
+  SET_LATLNG,
+  SET_VISIT
 } from "../actions";
 
 const initialState = {
   data: [],
   passports: [],
+  myPassports: [],
   isLoading: false,
   restaurants: [],
-  latlng: {},
+  latlng: { lat: 13.874392, lng: 121.090756 },
   error: ""
+  // visited: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -91,9 +95,12 @@ function rootReducer(state = initialState, action) {
         error: ""
       };
     case GET_RESTAURANTS_SUCCESS:
+      const arr = action.payload.map(el => {
+        return { ...el, visited: false };
+      });
       return {
         ...state,
-        restaurants: action.payload,
+        restaurants: arr,
         isLoading: false,
         error: ""
       };
@@ -104,10 +111,26 @@ function rootReducer(state = initialState, action) {
         error: action.payload,
         isLoading: false
       };
+    case ADD_PASSPORTS:
+      return {
+        ...state,
+        myPassports: [...state.myPassports, action.payload]
+      };
     case SET_LATLNG:
       return {
         ...state,
         latlng: action.payload
+      };
+    case SET_VISIT:
+      console.log("restaurants array", state.restaurants);
+      const temp = { ...state };
+      temp.restaurants.map((el, index) => {
+        if (index === action.payload) {
+          temp.restaurants[index].visited = !temp.restaurants[index].visited;
+        }
+      });
+      return {
+        ...temp
       };
     default:
       return state;

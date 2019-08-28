@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setLatLng } from "../../store/actions";
+import { setLatLng, addPassports } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
 import { Divider } from "semantic-ui-react";
@@ -22,14 +22,9 @@ export default function Passports(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios
-      .get(
-        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address}`
-      )
-      .then(res => {
-        dispatch(setLatLng(res.data.results[0].locations[0].latLng));
-        props.history.push("/restaurants");
-      });
+    // dispatch(getCities(props, address));
+    dispatch(addPassports(address));
+    props.history.push("/mypassports");
   };
 
   const getLocation = e => {
@@ -45,7 +40,7 @@ export default function Passports(props) {
     });
     if (location) {
       dispatch(setLatLng(location));
-      props.history.push("/restaurants");
+      props.history.push("/mypassports");
       return console.log("location inside showPosition", location);
     }
   };

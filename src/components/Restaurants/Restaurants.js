@@ -1,31 +1,72 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getRestaurants } from "../../store/actions";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Restaurant from "./Restaurant";
+import { Input, Icon } from "semantic-ui-react";
+import styled from "styled-components";
+
+const RestauransContainer = styled.div`
+  width: 80%;
+  margin: 20px auto;
+`;
+const RestaurantList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: stretch;
+`;
 
 export default function Restaurants(props) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
+  const [categories, setCategories] = useState("");
+
   useEffect(() => {
-    if (state) {
-      dispatch(getRestaurants(state.latlng));
-    }
-  }, []);
-  console.log(state.latlng);
+    dispatch(getRestaurants(state.latlng));
+  }, [dispatch, state.latlng]);
+  console.log(state.restaurants);
+
+  const changeHandler = event => {
+    setCategories(event.target.value);
+    console.log(categories.toLowerCase());
+  };
+  const changeSubmit = event => {
+    event.preventDefault();
+  };
+  const filterSearch = state.restaurants.filter(
+    restaurant =>
+      restaurant.restaurant.cuisines
+        .toLowerCase()
+        .includes(categories.toLowerCase()) ||
+      restaurant.restaurant.name
+        .toLowerCase()
+        .includes(categories.toLowerCase())
+  );
   return (
-    <div>
+    <RestauransContainer>
       <h2>Restaurants</h2>
-      {state.isLoading === true ? (
-        <Loader type="TailSpin" color="#e65400" height={80} width={80} />
-      ) : (
-        state.restaurants &&
-        state.restaurants.map((restaurant, index) => (
-          <Restaurant key={index} restaurant={restaurant} />
-        ))
-      )}
-    </div>
+      <form onSubmit={changeSubmit}>
+        <Input
+          className="searchInput"
+          icon={<Icon name="search" inverted circular link />}
+          type="text"
+          name="restaurant_search"
+          onChange={changeHandler}
+        ></Input>
+      </form>
+      <RestaurantList>
+        {state.isLoading === true ? (
+          <Loader type="TailSpin" color="#e65400" height={80} width={80} />
+        ) : (
+          //state.restaurants &&
+          filterSearch.map((restaurant, index) => (
+            <Restaurant key={index} restaurant={restaurant} index={index} />
+          ))
+        )}
+      </RestaurantList>
+    </RestauransContainer>
   );
 }

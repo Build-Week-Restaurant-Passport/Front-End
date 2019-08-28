@@ -5,7 +5,7 @@ import "./SignUp.css";
 import { NavLink } from "react-router-dom";
 
 const SignUp = props => {
-  const [form, setForm] = useState({ username: "admin", password: "password" });
+  const [form, setForm] = useState({});
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,12 +14,13 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.postRegister(form);
-    if (form.password !== form.confirmPassword) {
-      alert("The passwords doesn't match");
-      return false; // The form won't submit
-    } else return true; // The form will submit
+    // if (form.password !== form.confirmPassword) {
+    //   alert("The passwords doesn't match");
+    //   return false; // The form won't submit
+    // } else return true; // The form will submit
   };
 
+  console.log("sign up form", form);
   return (
     <div className="login">
       <div className="formContainer">
@@ -76,7 +77,7 @@ const SignUp = props => {
               value={form.password}
             />
           </p>
-
+          {/* 
           <p className="loginInputs">
             <label>Confirm Password</label>
 
@@ -87,7 +88,7 @@ const SignUp = props => {
               placeholder="Confirm Password"
               value={form.confirmPassword}
             />
-          </p>
+          </p> */}
           <div className="privacyTextContainer">
             <p className=" privacyText">
               By clicking Sign Up, you agree to our

@@ -9,12 +9,26 @@ header {
   font-size: 2.5rem;
   font-family: "Signika", sans-serif;
 }
+/* Phone Size- word disappears */
+@media screen and (max-width: 500px) {
+  .headertitle {
+    display: none;
+  }
+}
 
 .logo {
   display: flex;
   justify-content: center;
   color: #e60800;
 }
+
+/* Phone Size- move logo down slightly*/
+@media screen and (max-width: 500px) {
+  .logo {
+    padding: 10px;
+  }
+}
+
 .logoImg {
   width: 3%;
   height: auto;
@@ -38,6 +52,8 @@ header {
   background-color: #e60800;
   color: white;
 }
+
+/* Phone size */
 @media (max-width: 500px) {
   .logoImg {
     width: 9%;
