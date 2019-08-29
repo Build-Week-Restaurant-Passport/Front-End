@@ -2,15 +2,10 @@ import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 // Delete modal goes to restaurants
-const DeletedModal = props => {
+const DeleteModal = props => {
   console.log("dreated modal", props);
   return (
-    <Modal
-      closeIcon
-      open={props.openModal}
-      onClose={props.closeModal}
-      centerd={true}
-    >
+    <Modal closeIcon={true} open={props.openModal} onClose={props.closeModal}>
       <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
         <Image wrapped size="medium" src="https://i.imgur.com/eNfjMiE.png" />
@@ -26,4 +21,4 @@ const DeletedModal = props => {
   );
 };
 
-export default DeletedModal;
+export default DeleteModal;

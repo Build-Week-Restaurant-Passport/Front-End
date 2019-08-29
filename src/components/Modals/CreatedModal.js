@@ -41,9 +41,8 @@ const CreatedModal = props => {
           </Modal.Header>
 
           <p>Now let the foodie in you run wild in a brand new city!</p>
-          <div className="btnbox">
-            <CheckitOutButton>Check it out</CheckitOutButton>
-          </div>
+
+          <ButtonContainer>Check it out</ButtonContainer>
         </Modal.Description>
       </Modal.Content>
     </Modal>

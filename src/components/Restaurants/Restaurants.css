@@ -16,6 +16,14 @@ h1 {
 }
 
 .name {
+  color: black;
+  font-size: 1.45rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.subheader {
+  color: black;
+  margin-top: 1.5rem;
   font-family: "Roboto", sans-serif;
 }
 

@@ -5,6 +5,8 @@ import { Accordion, Icon } from "semantic-ui-react";
 import axios from "axios";
 import "./Restaurants.css";
 import { setVisit } from "../../store/actions";
+import { DeletePassportButton } from "../styled-components/Button";
+import DeleteModal from "../Modals/DeleteModal";
 
 const RestaurantReviewComments = styled.div`
   display: flex;
@@ -15,7 +17,7 @@ const RestaurantReviewComments = styled.div`
 
 const RestaurantPage = props => {
   const state = useSelector(state => state);
-  console.log(props);
+  console.log("restaurant page props", props);
   const id = props.match.params.restaurantID;
   const dispatch = useDispatch();
   const restaurant = props.location.restaurant;
@@ -32,6 +34,7 @@ const RestaurantPage = props => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [restaurantInfo, setRestaurantInfo] = useState({});
   const [reviews, setReviews] = useState(restaurantInfo.all_reviews);
+  const [open, setOpen] = useState(false);
 
   function isEmpty(obj) {
     for (var key in obj) {
@@ -59,6 +62,15 @@ const RestaurantPage = props => {
     const newIndex = activeIndex === index ? -1 : index;
 
     setActiveIndex(newIndex);
+  };
+
+  const openModal = () => {
+    setOpen(true);
+    console.log(open);
+  };
+  const closeModal = () => {
+    setOpen(false);
+    console.log(open);
   };
 
   const passportPunch = (index, bool) => {
@@ -148,9 +160,21 @@ const RestaurantPage = props => {
         <div className="buttons">
           <Button>Directions</Button>
           {state.restaurants[index].visited ? (
-            <Button2 onClick={() => passportPunch(index, false)}>
-              Unpunch
-            </Button2>
+            <>
+              <Button2 onClick={() => passportPunch(index, false)}>
+                Unpunch
+              </Button2>
+
+              <div>
+                {open ? (
+                  <DeleteModal
+                    openModal={openModal}
+                    closeModal={closeModal}
+                    history={props.history}
+                  />
+                ) : null}
+              </div>
+            </>
           ) : (
             <Button2 onClick={() => passportPunch(index, true)}>Punch</Button2>
           )}
@@ -233,7 +257,7 @@ const RestaurantPage = props => {
           <Accordion.Title
             active={activeIndex === 3}
             index={3}
-            onClick={handleClick}
+            onClick={openModal}
           >
             <Icon name="x" color="red" />
             Delete Restaurant

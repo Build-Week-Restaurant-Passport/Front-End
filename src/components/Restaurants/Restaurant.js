@@ -60,10 +60,13 @@ export default function Restaurant({ restaurant, index }) {
           />
           <Card.Content>
             <Card.Header className="name">
-              {restaurant.restaurant.name}
+              <strong>{restaurant.restaurant.name}</strong>
             </Card.Header>
 
-            <Card.Description style={{ maxHeight: "55px" }}>
+            <Card.Description
+              style={{ maxHeight: "55px" }}
+              className="subheader"
+            >
               <span>
                 {[...Array(price_range)].map((obj, index) => (
                   <i

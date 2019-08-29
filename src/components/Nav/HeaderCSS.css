@@ -68,6 +68,23 @@ header {
   }
 }
 
+.dropdown {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  color: #e60800;
+  padding: 5px;
+  margin-right: 7.5px;
+  /* background-color: #e60800; */
+}
+
+.menulist {
+  background-color: #e60800;
+}
+
+a.item {
+  color: red;
+}
 /* .linkStyle {
   display: flex;
   justify-content: center;

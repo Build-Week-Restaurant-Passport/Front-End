@@ -2,11 +2,29 @@ import React from "react";
 import "./HeaderCSS.css";
 import { HeaderButton } from "../styled-components/Button";
 import { Link } from "react-router-dom";
+import { Button, Dropdown, Menu } from "semantic-ui-react";
 
-const headerFiles = [{}];
+const options = [
+  { key: "home", icon: "home", text: "Home", as: Link, to: "/home" },
+  {
+    key: "passports",
+    icon: "file",
+    text: "Passport",
+    as: Link,
+    to: "/passports"
+  },
+  {
+    key: "settings",
+    icon: "settings",
+    text: "Settings",
+    as: Link,
+    to: "/home"
+  },
+  { key: "help", icon: "help", text: "Help", as: Link, to: "/privacypolicy" },
+  { key: "logout", icon: "logout", text: "Logout", as: Link, to: "/signup" }
+];
 
 const Header = () => {
-  const headerFiles = [{}];
   return (
     <header>
       <div className="logoContainer">
@@ -21,6 +39,11 @@ const Header = () => {
             <h1 className="headertitle">RESTAURANTPASSPORT</h1>
           </div>
         </Link>
+      </div>
+      <div className="dropdown">
+        <Menu compact className="menulist">
+          <Dropdown text="menu" options={options} simple item />
+        </Menu>
       </div>
       {localStorage.getItem("token") === null ? (
         <div className="buttonGroup">

@@ -5,12 +5,7 @@ import "./SignUp.css";
 import { NavLink } from "react-router-dom";
 
 const SignUp = props => {
-  const [form, setForm] = useState({
-    email: "",
-    fname: "",
-    lname: "",
-    password: ""
-  });
+  const [form, setForm] = useState({});
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -40,7 +35,7 @@ const SignUp = props => {
 
         <form onSubmit={handleSubmit} className="loginForm">
           <p className="loginInputs">
-            <label>First Name</label>
+            <label style={{ fontWeight: "bold" }}>First Name</label>
             <input
               onChange={handleChange}
               type="text"
@@ -50,7 +45,7 @@ const SignUp = props => {
             />
           </p>
           <p className="loginInputs">
-            <label>Last Name</label>
+            <label style={{ fontWeight: "bold" }}>Last Name</label>
             <input
               onChange={handleChange}
               type="text"
@@ -60,9 +55,10 @@ const SignUp = props => {
             />
           </p>
           <p className="loginInputs">
-            <label>Email</label>
+            <label style={{ fontWeight: "bold" }}>Email</label>
 
             <input
+              className="input-style"
               onChange={handleChange}
               type="email"
               name="email"
@@ -72,7 +68,7 @@ const SignUp = props => {
           </p>
 
           <p className="loginInputs">
-            <label>Password</label>
+            <label style={{ fontWeight: "bold" }}>Password</label>
 
             <input
               onChange={handleChange}
