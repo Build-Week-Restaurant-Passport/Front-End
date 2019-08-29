@@ -5,7 +5,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
 import "./Passport.css";
 // import SuccessModal from "../Modals/SuccessModal";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
 
 export default function Passports(props) {
   const dispatch = useDispatch();
@@ -15,6 +15,18 @@ export default function Passports(props) {
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
+  };
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const exModal = () => {
+    setModalOpen(modalOpen);
   };
 
   const [address, setAddress] = useState("");
@@ -100,39 +112,45 @@ export default function Passports(props) {
         className="passportImage"
       />
       {/* <SuccessModal toggleModal={toggleModal} /> */}
-      <div className="modalcontainer">
+      <div>
         {modalOpen ? (
-          <Modal open={modalOpen} onClose={modalOpen}>
-            <Modal.Content image>
+          <Modal
+            className="modalcontainer"
+            open={openModal}
+            onClose={closeModal}
+            closeIcon={true}
+          >
+            <Modal.Content
+              style={{
+                flexDirection: "column",
+                textAlign: "center",
+                height: "500px"
+              }}
+              image
+            >
               <Image
+                style={{
+                  position: "relative"
+                }}
                 wrapped
                 size="medium"
                 src="https://i.imgur.com/1IeD2zH.png"
               />
-              <Modal.Header>Congrats! You did it!</Modal.Header>
-              <Button onClick={clickHandler}>click me</Button>
-              <Modal.Description>
-                <p>
-                  Your personal passport has been created. Treat yourself to
-                  something sweet to celebrate!
-                </p>
+              <Modal.Header>
+                <h1 className="modaltitle">Congrats! You did it!</h1>
+              </Modal.Header>
+
+              <Modal.Description className="paratext">
+                <h3>
+                  Your personal passport has been created. <br /> Treat yourself
+                  to something sweet to <br /> celebrate!
+                </h3>
               </Modal.Description>
+              <Button onClick={clickHandler}>Let's Eat</Button>
             </Modal.Content>
           </Modal>
         ) : null}
       </div>
     </div>
   );
-}
-
-{
-  /* <div>
-{modalOpen ? (
-  <SuccessModal
-    toggleModal={toggleModal}
-    modalOpen={modalOpen}
-    history={props.history}
-  />
-) : null}
-</div> */
 }

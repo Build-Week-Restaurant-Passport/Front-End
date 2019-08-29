@@ -15,6 +15,7 @@ const CreatedModal = props => {
       open={props.modalOpen}
       onClose={props.modalOpen}
       centerd={true}
+      closeIcon
     >
       <Modal.Header></Modal.Header>
       <Modal.Content image>

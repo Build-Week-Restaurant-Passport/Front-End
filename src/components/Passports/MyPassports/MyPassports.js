@@ -6,12 +6,14 @@ import { getPassports } from "../../../store/actions";
 // import { modalContainer, innerBox } from "./modalstyle";
 import {
   CreatePassportButton,
+  DeletePassportButton,
   HeaderButton,
   ButtonContainer,
   CheckitOutButton
 } from "../../styled-components/Button";
 import CreatedModal from "../../Modals/CreatedModal";
 import PassportModal from "../../Modals/PassportModal";
+import "./MyPassports.css";
 
 export default function MyPassports(props) {
   const state = useSelector(state => state);
@@ -30,41 +32,56 @@ export default function MyPassports(props) {
     setModalOpen(!modalOpen);
   };
 
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   useEffect(() => {
     dispatch(getPassports());
   }, []);
 
   return (
-    <div>
-      <button onClick={deletePassport}>delete passport</button>
-
+    <div className="Title">
       <h1>Your Passports</h1>
       {state.myPassports &&
         state.myPassports.map(passport => (
           <MyPassport address={passport} props={props} />
         ))}
 
-      <div>
-        {/* Add create Modal with button press */}
+      <div className="btn2">
+        <DeletePassportButton>Delete Passport</DeletePassportButton>
+      </div>
 
+      {/* Add create Modal with button press */}
+      <div className="btn1">
         <CreatePassportButton onClick={toggleModal}>
           + Add New Passport
         </CreatePassportButton>
-        {/* {modalOpen ? (
-            <CreatedModal
-              toggleModal={toggleModal}
-              modalOpen={modalOpen}
-              history={props.history}
-            />
-          ) : null} */}
-        {modalOpen ? (
-          <PassportModal
-            toggleModal={toggleModal}
-            modalOpen={modalOpen}
-            history={props.history}
-          />
-        ) : null}
       </div>
+      {/* 
+      <div>
+        {modalOpen ? <PassportModal toggleModal={toggleModal} /> : null}
+      </div> */}
+
+      {modalOpen ? (
+        <PassportModal
+          toggleModal={toggleModal}
+          modalOpen={modalOpen}
+          history={props.history}
+        />
+      ) : null}
+      {/* 
+      {modalOpen2 ? (
+        <CreatedModal
+          toggleModal2={toggleModal2}
+          modalOpen2={modalOpen2}
+          history={props.history}
+        />
+      ) : null} */}
     </div>
   );
 }

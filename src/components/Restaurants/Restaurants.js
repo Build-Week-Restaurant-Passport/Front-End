@@ -43,12 +43,9 @@ export default function Restaurants(props) {
   useEffect(() => {
     dispatch(getRestaurants(state.latlng));
   }, [dispatch, state.latlng]);
-  console.log(state);
-  console.log("state from restaurants component", state.restaurants);
 
   const changeHandler = event => {
     setCategories(event.target.value);
-    console.log(categories.toLowerCase());
   };
   const changeSubmit = event => {
     event.preventDefault();
@@ -93,17 +90,6 @@ export default function Restaurants(props) {
             </form>
           </Accordion.Content>
         </Accordion>
-        {/* <Icon name="search" inverted circular link />
-
-        <form onSubmit={changeSubmit} className="search-form">
-          <Input
-            id="searchInputId"
-            className="searchInput"
-            type="text"
-            name="restaurant_search"
-            onChange={changeHandler}
-          ></Input>
-        </form> */}
       </div>
 
       <RestaurantList className="restaurants">

@@ -1,0 +1,17 @@
+.Title {
+  display: flex;
+}
+
+.btn1 {
+  position: absolute;
+  right: 100px;
+  display: flex;
+  padding-top: 20px;
+}
+
+.btn2 {
+  position: absolute;
+  right: 350px;
+  display: flex;
+  padding-top: 20px;
+}

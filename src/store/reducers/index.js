@@ -29,7 +29,7 @@ const initialState = {
   restaurants: [],
   latlng: { lat: 13.874392, lng: 121.090756 },
   error: ""
-  // visited: false
+  // visited: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -103,6 +103,11 @@ function rootReducer(state = initialState, action) {
     case GET_RESTAURANTS_SUCCESS:
       const arr = action.payload.map(el => {
         return { ...el, visited: false };
+      });
+      arr.map(el => {
+        if (el.id === localStorage.getItem("visited")) {
+          el.visited = true;
+        }
       });
       return {
         ...state,

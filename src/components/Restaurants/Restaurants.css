@@ -106,7 +106,7 @@ a:active {
 }
 .flex-searchbar {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 .search-form {
   margin: 0 0 0 2rem;
@@ -114,6 +114,14 @@ a:active {
 .searchBarcontainer {
   display: flex;
   background: white;
+  padding: 0 0 1rem 0;
+}
+.searchBarcontainer .content.active {
+  background: white !important;
+  padding: 0 0 5px 0;
+}
+.searchBarcontainer .title.active {
+  background: white !important;
 }
 @media screen and (max-width: 500px) {
   .sameSize {
@@ -137,5 +145,12 @@ a:active {
   }
   .sideTwo {
     margin: 0;
+  }
+  .flex-searchbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search.inverted.circular.link {
+    margin: 0 0 0 0;
   }
 }

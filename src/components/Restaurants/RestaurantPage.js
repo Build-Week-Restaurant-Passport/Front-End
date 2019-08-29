@@ -16,6 +16,7 @@ const RestaurantReviewComments = styled.div`
 const RestaurantPage = props => {
   const state = useSelector(state => state);
   console.log(props);
+  const id = props.match.params.restaurantID;
   const dispatch = useDispatch();
   const restaurant = props.location.restaurant;
   const index = props.location.index;
@@ -31,10 +32,6 @@ const RestaurantPage = props => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [restaurantInfo, setRestaurantInfo] = useState({});
   const [reviews, setReviews] = useState(restaurantInfo.all_reviews);
-  console.log(
-    "restaurantPage state specific restaurant",
-    state.restaurants[index]
-  );
 
   function isEmpty(obj) {
     for (var key in obj) {
@@ -55,9 +52,6 @@ const RestaurantPage = props => {
   }, []);
   useEffect(() => {
     const reviews = restaurantInfo.all_reviews;
-    if (reviews) {
-      console.log(reviews.reviews);
-    }
   }, [restaurantInfo]);
 
   const handleClick = (e, titleProps) => {
@@ -66,7 +60,19 @@ const RestaurantPage = props => {
 
     setActiveIndex(newIndex);
   };
-  console.log("restaurant page props", props);
+
+  const passportPunch = (index, bool) => {
+    console.log("bool:", bool);
+    if (bool === true) {
+      console.log("if");
+      localStorage.setItem(`${id}`, id);
+    } else {
+      console.log("else");
+      localStorage.removeItem(`${id}`);
+    }
+
+    dispatch(setVisit(index, bool));
+  };
 
   const Button = styled.button`
     border-radius: 1.875rem;
@@ -142,9 +148,11 @@ const RestaurantPage = props => {
         <div className="buttons">
           <Button>Directions</Button>
           {state.restaurants[index].visited ? (
-            <Button2 onClick={() => dispatch(setVisit(index))}>Unpunch</Button2>
+            <Button2 onClick={() => passportPunch(index, false)}>
+              Unpunch
+            </Button2>
           ) : (
-            <Button2 onClick={() => dispatch(setVisit(index))}>Punch</Button2>
+            <Button2 onClick={() => passportPunch(index, true)}>Punch</Button2>
           )}
         </div>
         <Accordion fluid styled className="accordionContainer">

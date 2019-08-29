@@ -11,13 +11,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLatLng, addPassports } from "../../store/actions";
 import "./PassportModal.css";
 import { ButtonContainer } from "../styled-components/Button";
+import CreatedModal from "./CreatedModal";
+
+// PassportModal goes to add passport on page /MyPassports
 
 const PassportModal = props => {
+  console.log("quick test:", props);
   const dispatch = useDispatch();
   const [active, setActive] = useState(true);
   const [cityname, setcityname] = useState({ cityname: "" });
   const [location, setLocation] = useState();
   console.log("success modal props", props);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
   const clickHandler = () => {
     props.toggleModal();
     // props.history.push("/restaurants");
@@ -33,6 +40,18 @@ const PassportModal = props => {
       navigator.geolocation.getCurrentPosition(showPosition);
     }
   };
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
+
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
 
   const showPosition = position => {
     setLocation({
@@ -51,6 +70,7 @@ const PassportModal = props => {
   return (
     <Dimmer.Dimmable as={Segment} dimmed={active}>
       <Modal
+        closeIcon
         style={{
           display: "flex",
           alignItems: "center"
@@ -90,10 +110,20 @@ const PassportModal = props => {
                 className="create-btn"
                 type="submit"
                 onSubmit={handleSubmit}
+                onClick={toggleModal}
               >
                 Create
               </ButtonContainer>
             </form>
+            <div>
+              {modalOpen ? (
+                <CreatedModal
+                  toggleModal={toggleModal}
+                  modalOpen={modalOpen}
+                  history={props.history}
+                />
+              ) : null}
+            </div>
             <div className="h2-lines"></div>
             <h2 className="h2-position">or</h2>
             <a onClick={getLocation}>Use my current location</a>

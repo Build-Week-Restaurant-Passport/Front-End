@@ -68,13 +68,36 @@ export const LoadMoreButton = styled(NavLink)`
 
 export const CreatePassportButton = styled(NavLink)`
   background: #e65400;
-  height: 40px;
-  width: 300px;
+  height: 30px;
+  width: 180px;
   border-radius: 20px;
   color: #fff;
   text-align: center;
   text-decoration: none;
-  line-height: 3rem;
+  line-height: 2rem;
+  &:hover {
+    background-color: #ffae80;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    background-color: #ffae80;
+    color: white;
+  }
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const DeletePassportButton = styled(NavLink)`
+  background: #e65400;
+  height: 30px;
+  width: 180px;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2rem;
   &:hover {
     background-color: #ffae80;
     color: white;

@@ -20,8 +20,6 @@ export default function Restaurant({ restaurant, index }) {
   // console.log(index);
   const state = useSelector(state => state);
   const dispatch = useDispatch();
-  console.log("redux state from restaurant", state);
-
   const starsCount = Math.round(
     restaurant.restaurant.user_rating.aggregate_rating
   );
@@ -29,7 +27,7 @@ export default function Restaurant({ restaurant, index }) {
 
   const handleChange = e => {
     e.preventDefault();
-    console.log(restaurant);
+    console.log("restaurant", restaurant);
     console.log(index);
     dispatch(setVisit(index));
   };

@@ -1,10 +1,16 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
+// Delete modal goes to MyPassport.js for delete passport
 const DeletedModal = props => {
   console.log("dreated modal", props);
   return (
-    <Modal open={props.modalOpen} onClose={props.modalOpen} centerd={true}>
+    <Modal
+      closeIcon
+      open={props.modalOpen}
+      onClose={props.modalOpen}
+      centerd={true}
+    >
       <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
         <Image
