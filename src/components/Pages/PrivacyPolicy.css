@@ -1,0 +1,16 @@
+.privacy-page {
+  width: 70vw;
+  margin: 20px auto;
+}
+.pc-h1 {
+  padding: 20px 0 0 0;
+}
+.pc-h2 {
+  width: 70vw;
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid black;
+}
+.pc-a {
+  margin: 0 0 0 3px;
+}

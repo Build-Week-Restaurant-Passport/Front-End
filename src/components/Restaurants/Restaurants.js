@@ -4,7 +4,7 @@ import { getRestaurants } from "../../store/actions";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Restaurant from "./Restaurant";
-import { Input, Icon } from "semantic-ui-react";
+import { Input, Icon, Accordion } from "semantic-ui-react";
 import styled from "styled-components";
 import { LoadMoreButton } from "../styled-components/Button";
 import "./Restaurants.css";
@@ -53,6 +53,13 @@ export default function Restaurants(props) {
   const changeSubmit = event => {
     event.preventDefault();
   };
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const handleClick = (e, titleProps) => {
+    const { index } = titleProps;
+    const newIndex = activeIndex === index ? -1 : index;
+
+    setActiveIndex(newIndex);
+  };
   const filterSearch = state.restaurants.filter(
     restaurant =>
       restaurant.restaurant.cuisines
@@ -66,8 +73,27 @@ export default function Restaurants(props) {
     <RestauransContainer>
       <div className="flex-searchbar">
         <h1>Restaurants</h1>
-
-        <Icon name="search" inverted circular link />
+        <Accordion className="searchBarcontainer">
+          <Accordion.Title
+            active={activeIndex === 0}
+            index={0}
+            onClick={handleClick}
+          >
+            <Icon name="search" inverted circular link />
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 0}>
+            <form onSubmit={changeSubmit} className="search-form">
+              <Input
+                id="searchInputId"
+                className="searchInput"
+                type="text"
+                name="restaurant_search"
+                onChange={changeHandler}
+              ></Input>
+            </form>
+          </Accordion.Content>
+        </Accordion>
+        {/* <Icon name="search" inverted circular link />
 
         <form onSubmit={changeSubmit} className="search-form">
           <Input
@@ -77,7 +103,7 @@ export default function Restaurants(props) {
             name="restaurant_search"
             onChange={changeHandler}
           ></Input>
-        </form>
+        </form> */}
       </div>
 
       <RestaurantList className="restaurants">
