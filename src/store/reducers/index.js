@@ -14,7 +14,7 @@ import {
   ADD_PASSPORTS,
   SET_LATLNG,
   SET_VISIT,
-  DELTE_PASSPORT,
+  DELETE_PASSPORT,
   DELETE_PASSPORT_SUCCESS,
   DELETE_PASSPORT_FAILURE
 } from "../actions";
@@ -135,14 +135,28 @@ function rootReducer(state = initialState, action) {
       return {
         ...temp
       };
-      case "DELETE_PASSPORT":
-        return {
-          ...state,
-          myPassports: state.myPassports.filter(()),
-          isLoading: true,
-        }
-        case "DELETE_PASSPORT_SUCCESS":
-          
+    case DELETE_PASSPORT:
+      return {
+        ...state,
+        myPassports: state.myPassports.filter(
+          ({ myPassports }) => !myPassports.id
+        ),
+        isLoading: true
+      };
+    case DELETE_PASSPORT_SUCCESS:
+      return {
+        ...state,
+        myPassports: action.payload,
+        error: action.payload,
+        isLoading: false
+      };
+    case DELETE_PASSPORT_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+
     default:
       return state;
   }

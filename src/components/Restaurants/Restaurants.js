@@ -6,6 +6,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Restaurant from "./Restaurant";
 import { Input, Icon } from "semantic-ui-react";
 import styled from "styled-components";
+import { LoadMoreButton } from "../styled-components/Button";
 
 const RestauransContainer = styled.div`
   width: 80%;
@@ -18,6 +19,17 @@ const RestaurantList = styled.div`
   align-content: stretch;
 `;
 
+const BtnFooter = styled.div`
+  display: none;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+  }
+`;
+
 export default function Restaurants(props) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
@@ -27,6 +39,7 @@ export default function Restaurants(props) {
   useEffect(() => {
     dispatch(getRestaurants(state.latlng));
   }, [dispatch, state.latlng]);
+  console.log(state);
   console.log(state.restaurants);
 
   const changeHandler = event => {
@@ -57,6 +70,7 @@ export default function Restaurants(props) {
           onChange={changeHandler}
         ></Input>
       </form>
+
       <RestaurantList>
         {state.isLoading === true ? (
           <Loader type="TailSpin" color="#e65400" height={80} width={80} />
@@ -67,6 +81,10 @@ export default function Restaurants(props) {
           ))
         )}
       </RestaurantList>
+
+      <BtnFooter>
+        <LoadMoreButton>Load More</LoadMoreButton>
+      </BtnFooter>
     </RestauransContainer>
   );
 }

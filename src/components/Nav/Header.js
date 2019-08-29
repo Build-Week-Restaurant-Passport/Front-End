@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./HeaderCSS.css";
 import { HeaderButton } from "../styled-components/Button";
 import { Link } from "react-router-dom";

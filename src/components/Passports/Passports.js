@@ -3,13 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLatLng, addPassports } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
-import { Divider } from "semantic-ui-react";
 import "./Passport.css";
-import axios from "axios";
+// import SuccessModal from "../Modals/SuccessModal";
+import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 export default function Passports(props) {
-  const state = useSelector(state => state);
   const dispatch = useDispatch();
+
+  const [modalOpen, setModalOpen] = useState(false);
+  console.log("modal test:", modalOpen);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState();
@@ -24,7 +30,7 @@ export default function Passports(props) {
     e.preventDefault();
     // dispatch(getCities(props, address));
     dispatch(addPassports(address));
-    props.history.push("/mypassports");
+    // props.history.push("/mypassports");
   };
 
   const getLocation = e => {
@@ -40,30 +46,31 @@ export default function Passports(props) {
     });
     if (location) {
       dispatch(setLatLng(location));
-      props.history.push("/mypassports");
+      // props.history.push("/mypassports");
       return console.log("location inside showPosition", location);
     }
   };
 
-  const deletePassport = e => {
-    e.preventDefault();
-    dispatch({ type: "DELETE_PASSPORT" });
+  const clickHandler = () => {
+    toggleModal();
+    props.history.push("/restaurants");
   };
 
   return (
-    <div>
+    <div className="passport-wrapper">
       <div className="passportContainer">
         <h1>Congrats! You're almost there!</h1>
-        <h3 className="testing">
+        <h3 className="h3-spacing">
           What city do you want to create <br /> your passport for?
         </h3>
+
         <img
-          className="map-img"
+          className="maps-img"
           src="https://i.imgur.com/AiqKGkF.png"
           alt="Delicious Pasta"
         />
 
-        <form classname="passport-form" onSubmit={handleSubmit}>
+        <form className="passport-form" onSubmit={handleSubmit}>
           <input
             className="passport-input"
             onChange={handleChange}
@@ -72,12 +79,18 @@ export default function Passports(props) {
             placeholder="Washington, DC"
             value={address}
           />
-          <ButtonContainer type="submit" onSubmit={handleSubmit}>
+          <ButtonContainer
+            className="create-btn"
+            type="submit"
+            onSubmit={handleSubmit}
+            onClick={toggleModal}
+          >
             Create
           </ButtonContainer>
         </form>
         <div className="h2-lines"></div>
-        <h2>or</h2>
+        {/* <Divider className="h2-lines" /> */}
+        <h2 className="h2-position">or</h2>
         <a onClick={getLocation}>Use my current location</a>
         <p>(This will prompt you to enable your location services)</p>
       </div>
@@ -86,6 +99,40 @@ export default function Passports(props) {
         alt="Delicious Pasta"
         className="passportImage"
       />
+      {/* <SuccessModal toggleModal={toggleModal} /> */}
+      <div>
+        {modalOpen ? (
+          <Modal open={modalOpen} onClose={modalOpen}>
+            <Modal.Content image>
+              <Image
+                wrapped
+                size="medium"
+                src="https://i.imgur.com/1IeD2zH.png"
+              />
+              <Modal.Header>Congrats! You did it!</Modal.Header>
+              <Button onClick={clickHandler}>click me</Button>
+              <Modal.Description>
+                <p>
+                  Your personal passport has been created. Treat yourself to
+                  something sweet to celebrate!
+                </p>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+        ) : null}
+      </div>
     </div>
   );
+}
+
+{
+  /* <div>
+{modalOpen ? (
+  <SuccessModal
+    toggleModal={toggleModal}
+    modalOpen={modalOpen}
+    history={props.history}
+  />
+) : null}
+</div> */
 }

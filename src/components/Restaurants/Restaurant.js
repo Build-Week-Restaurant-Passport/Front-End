@@ -36,7 +36,7 @@ export default function Restaurant({ restaurant, index }) {
   //restaurant.restaurant.featured_imag="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
   //}
 
-  const HideAddress = styled.span`
+  const HideInfo = styled.span`
     @media screen and (max-width: 500px) {
       display: none;
     }
@@ -44,12 +44,13 @@ export default function Restaurant({ restaurant, index }) {
 
   return (
     <Link
+      className="restaurantLink"
       to={{
         pathname: `/restaurant/${restaurant.restaurant.id}`,
         restaurant: restaurant
       }}
     >
-      <RestaurantCard>
+      <RestaurantCard className="restaurantCard">
         <Card className="sameSize">
           <Image
             src={restaurant.restaurant.featured_image}
@@ -71,10 +72,6 @@ export default function Restaurant({ restaurant, index }) {
               </span>
               &nbsp; &middot; &nbsp;
               {restaurant.restaurant.cuisines} <br />
-              <HideAddress>
-                Address: {restaurant.restaurant.location.address}
-              </HideAddress>
-              <br />
               <span>
                 {[...Array(starsCount)].map((obj, index) => (
                   <i
@@ -83,16 +80,14 @@ export default function Restaurant({ restaurant, index }) {
                   />
                 ))}
               </span>
-              &nbsp; Menu : &nbsp;
-              <a
-                href={restaurant.restaurant.menu_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-book-open"></i>
-              </a>
               <br />
-              <Checkbox toggle onClick={handleChange} label="I've Been Here" />
+              <HideInfo>
+                <Checkbox
+                  toggle
+                  onClick={handleChange}
+                  label="I've Been Here"
+                />
+              </HideInfo>
             </Card.Description>
           </Card.Content>
         </Card>

@@ -20,13 +20,19 @@ export const GET_RESTAURANTS_START = "GET_RESTAURANTS_START";
 export const GET_RESTAURANTS_SUCCESS = "GET_RESTAURANTS_SUCCESS";
 export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
 
+export const ADD_PASSPORTS_START = "ADD_PASSPORTS_START";
+export const ADD_PASSPORTS_SUCCESS = "ADD_PASSPORTS_SUCCESS";
+export const ADD_PASSPORTS_FAILURE = "ADD_PASSPORTS_FAILURE";
+
 export const ADD_PASSPORTS = "ADD_PASSPORTS";
 
 export const SET_LATLNG = "SET_LATLNG";
 
 export const SET_VISIT = "SET_VISIT";
 
-export const DELTE_PASSPORT = "DELETE_PASSPORT";
+export const DELETE_PASSPORT = "DELETE_PASSPORT";
+export const DELETE_PASSPORT_SUCCESS = "DELETE_PASSPORT_SUCCESS";
+export const DELETE_PASSPORT_FAILURE = "DELETE_PASSPORT_FAILURE ";
 
 export const postLogin = form => dispatch => {
   dispatch({ type: POST_DATA_START });
@@ -48,7 +54,7 @@ export const postRegister = form => dispatch => {
   console.log("post Regist");
   dispatch({ type: POST_REG_START });
   axios
-    .post(`https://efrain-restaurant.herokuapp.com/users/user`, form)
+    .post(`https://efrain-restaurant.herokuapp.com/group/add`, form)
     .then(res => {
       console.log("successful add:", res);
       dispatch({ type: POST_REG_SUCCESS, payload: res.data });
@@ -95,10 +101,18 @@ export const getPassports = props => {
       });
   };
 };
-
+// cities
 export const addPassports = props => {
   return dispatch => {
-    dispatch({ type: ADD_PASSPORTS, payload: props });
+    dispatch({ type: ADD_PASSPORTS_START });
+    axios
+      .post(``)
+      .then(res => {
+        dispatch({ type: ADD_PASSPORTS_SUCCESS, payload: props });
+      })
+      .catch(err => {
+        dispatch({ type: ADD_PASSPORTS_FAILURE, payload: err.response });
+      });
   };
 };
 
@@ -134,5 +148,22 @@ export const setVisit = props => {
   console.log("setvisit action", props);
   return dispatch => {
     dispatch({ type: SET_VISIT, payload: props });
+  };
+};
+
+export const removePassport = props => {
+  return dispatch => {
+    dispatch({ type: DELETE_PASSPORT });
+    axios
+      .delete(
+        `https://efrain-restaurant.herokuapp.com/group/delete/${props.id}`
+      )
+      .then(res => {
+        dispatch({ type: DELETE_PASSPORT_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        console.error(err);
+        dispatch({ type: DELETE_PASSPORT_FAILURE, payload: err });
+      });
   };
 };

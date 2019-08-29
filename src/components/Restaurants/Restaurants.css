@@ -1,3 +1,12 @@
+.active {
+  background-color: whitesmoke !important;
+  color: black !important;
+}
+
+.flex {
+  display: flex;
+}
+
 .restaurantPage {
   display: flex;
 }
@@ -9,6 +18,7 @@
 .sideOne img {
   width: 100%;
   height: 100%;
+  max-height: 800px;
 }
 
 .sideTwo {
@@ -25,8 +35,24 @@
 
 .buttons {
   margin-top: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.reviewSideOne {
+  margin: 0 0 0 0;
+  width: 30%;
+}
+
+.reviewSideOne img {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.reviewSideTwo {
+  width: 65%;
 }
 
 a {
@@ -42,13 +68,41 @@ a:active {
 }
 
 .sameSize {
-  min-height: 25rem !important;
+  min-height: 23rem !important;
+}
+
+.restaurantLink a:hover {
+  box-shadow: 0 0 10px #ccc;
 }
 
 .sameSizeImages img {
   min-height: 10rem;
   max-height: 5rem;
 }
-.sc-bxivhb.gKUblN {
+.restaurantCard {
   width: 100%;
+}
+@media screen and (max-width: 500px) {
+  .sameSize {
+    min-height: 10rem !important;
+  }
+
+  .restaurantPage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .sideOne {
+    width: 100%;
+  }
+  .sideTwo {
+    width: 100%;
+  }
+  .buttons {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  .sideTwo {
+    margin: 0;
+  }
 }

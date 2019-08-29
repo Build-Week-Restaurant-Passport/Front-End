@@ -15,7 +15,7 @@
 .loginImage {
   height: auto;
   width: 60%;
-  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .formtitle {

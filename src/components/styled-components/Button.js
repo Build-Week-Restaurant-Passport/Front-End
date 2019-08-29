@@ -47,21 +47,67 @@ export const HeaderButton = styled(NavLink)`
 export const LoadMoreButton = styled(NavLink)`
   @media (max-width: 500px) {
     background: #e65400;
-    height: 30px;
+    height: 40px;
     width: 220px;
     border-radius: 20px;
     color: #fff;
     text-align: center;
     text-decoration: none;
-    line-height: 2rem;
+    line-height: 3rem;
     &:hover {
       background: #ffae80;
       color: white;
     }
     &:active {
       text-decoration: none;
-      background-color: 
+      background-color: lightgray;
       color: white;
     }
+  }
+`;
+
+export const CreatePassportButton = styled(NavLink)`
+  background: #e65400;
+  height: 40px;
+  width: 300px;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 3rem;
+  &:hover {
+    background-color: #ffae80;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    background-color: #ffae80;
+    color: white;
+  }
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const CheckitOutButton = styled(NavLink)`
+  background: #e65400;
+  height: 40px;
+  width: 300px;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 3rem;
+  &:hover {
+    background-color: #ffae80;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    background-color: #ffae80;
+    color: white;
+  }
+  @media (max-width: 500px) {
+    display: none;
   }
 `;

@@ -2,10 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import styled from "styled-components";
-import { LoadMoreButton } from "../styled-components/Button";
 
 export default function Footer() {
   // Font type? Roboto
+
+  const NavLinksbox = styled.div`
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 500px) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      padding-bottom: 10px;
+    }
+  `;
 
   const Bulletlist = styled.li`
     color: white;
@@ -13,30 +25,22 @@ export default function Footer() {
 
   const BulletGroup = styled.div`
     display: flex;
-  @media screen and (max-width: 500px) {
-    display: flex;
-    flex-direction: column
-    border: 2px solid red;
-  }
-  `;
-
-  const BtnFooter = styled.div`
-    display: none;
-
     @media screen and (max-width: 500px) {
-      display: flex;
-      justify-content: center;
-      background: white;
-      padding: 20px;
     }
   `;
 
+  // const BtnFooter = styled.div`
+  //   display: none;
+
+  //   @media screen and (max-width: 500px) {
+  //     display: flex;
+  //     justify-content: center;
+  //     background: white;
+  //   }
+  // `;
+
   return (
     <nav className="footer">
-      <BtnFooter>
-        <LoadMoreButton>Load More</LoadMoreButton>
-      </BtnFooter>
-
       {/* Logo- of fork and knife in red pin point*/}
 
       <div className="Logoholder">
@@ -47,7 +51,7 @@ export default function Footer() {
         />
       </div>
 
-      <div className="navlinksbox">
+      <NavLinksbox>
         <Link className="navword" to="/privacypolicy">
           Privacy
         </Link>
@@ -71,7 +75,7 @@ export default function Footer() {
             </Link>
           </Bulletlist>
         </BulletGroup>
-      </div>
+      </NavLinksbox>
 
       <p className="copyright"> {"\u00A9"} 2019 RestaurantPassport</p>
     </nav>
