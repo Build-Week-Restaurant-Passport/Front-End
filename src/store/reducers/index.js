@@ -104,8 +104,8 @@ function rootReducer(state = initialState, action) {
       const arr = action.payload.map(el => {
         return { ...el, visited: false };
       });
-      arr.map(el => {
-        if (el.id === localStorage.getItem("visited")) {
+      arr.map((el, idx) => {
+        if (el.restaurant.id === localStorage.getItem(el.restaurant.id)) {
           el.visited = true;
         }
       });
@@ -150,7 +150,7 @@ function rootReducer(state = initialState, action) {
       console.log("restaurants array", state.restaurants);
       const temp = { ...state };
       temp.restaurants.map((el, index) => {
-        if (index === action.payload) {
+        if (index === action.payload.index) {
           temp.restaurants[index].visited = !temp.restaurants[index].visited;
         }
       });

@@ -47,7 +47,7 @@ export const postLogin = form => dispatch => {
         }
       }
     )
-    .then(res => console.log(res));
+    .then(res => localStorage.setItem("token", res.data.access_token));
 };
 
 export const postRegister = form => dispatch => {

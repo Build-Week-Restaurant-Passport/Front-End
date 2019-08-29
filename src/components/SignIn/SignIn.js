@@ -6,7 +6,7 @@ import { ButtonContainer } from "../styled-components/Button";
 import { NavLink } from "react-router-dom";
 
 const Signin = props => {
-  const [form, setForm] = useState({ username: "admin", password: "password" });
+  const [form, setForm] = useState({ email: "admin", password: "password" });
 
   const handleChange = e => {
     e.preventDefault();
@@ -27,13 +27,13 @@ const Signin = props => {
         <p className="signinText">Sign in with your email and password.</p>
         <form onSubmit={handleSubmit} className="loginForm">
           <p className="loginInputs">
-            <label>Username</label>
+            <label>Email</label>
             <input
               onChange={handleChange}
               type="text"
-              name="username"
-              placeholder="username"
-              value={form.username}
+              name="email"
+              placeholder="email"
+              value={form.email}
             />
           </p>
           <p className="loginInputs">

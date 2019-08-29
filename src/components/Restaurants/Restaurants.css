@@ -102,11 +102,13 @@ a:active {
   border-bottom: 1px solid #ddd5d4;
 }
 .search.inverted.circular.link {
-  margin: 0 0 0 2rem;
+  margin: 0 0 1rem 1.5rem !important;
 }
 .flex-searchbar {
   display: flex;
-  align-items: baseline;
+}
+.searchBar-title {
+  margin: 0 0 5px 0;
 }
 .search-form {
   margin: 0 0 0 2rem;
@@ -120,9 +122,19 @@ a:active {
   background: white !important;
   padding: 0 0 5px 0;
 }
+.searchBarcontainer .title {
+  padding: 0 0 0 0;
+}
 .searchBarcontainer .title.active {
   background: white !important;
+  padding: 0 0 0 0;
 }
+
+.search.inverted.circular.link {
+  margin-top: 0.5rem !important;
+  margin-left: 1rem !important;
+}
+
 @media screen and (max-width: 500px) {
   .sameSize {
     min-height: 10rem !important;
@@ -151,6 +163,6 @@ a:active {
     align-items: flex-start;
   }
   .search.inverted.circular.link {
-    margin: 0 0 0 0;
+    margin: 0 0 0 0 !important;
   }
 }

@@ -11,7 +11,6 @@ import {
   ButtonContainer,
   CheckitOutButton
 } from "../../styled-components/Button";
-import CreatedModal from "../../Modals/CreatedModal";
 import PassportModal from "../../Modals/PassportModal";
 import "./MyPassports.css";
 
@@ -20,16 +19,13 @@ export default function MyPassports(props) {
   const dispatch = useDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [createModalOpen, setCreateModalOpen] = useState(false);
   console.log("modal test:", modalOpen);
 
   const deletePassport = e => {
     e.preventDefault();
     console.log("removal passport test", e);
     dispatch({ type: "DELETE_PASSPORT" });
-  };
-
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
   };
 
   const openModal = () => {
@@ -40,48 +36,53 @@ export default function MyPassports(props) {
     setModalOpen(false);
   };
 
+  const openCreateModal = () => {
+    setCreateModalOpen(true);
+  };
+
+  const closeCreateModal = () => {
+    setCreateModalOpen(false);
+  };
+
   useEffect(() => {
     dispatch(getPassports());
   }, []);
 
   return (
-    <div className="Title">
-      <h1>Your Passports</h1>
-      {state.myPassports &&
-        state.myPassports.map(passport => (
-          <MyPassport address={passport} props={props} />
-        ))}
+    <div className="mypassportsTitleContainer">
+      <div className="mypassportsTitle">
+        <h1>Your Passports</h1>
+        <div className="btnContainer">
+          <div className="btn2">
+            <DeletePassportButton>Delete Passport</DeletePassportButton>
+          </div>
 
-      <div className="btn2">
-        <DeletePassportButton>Delete Passport</DeletePassportButton>
+          {/* Add create Modal with button press */}
+          <div className="btn1">
+            <CreatePassportButton onClick={openModal}>
+              + Add New Passport
+            </CreatePassportButton>
+          </div>
+        </div>
       </div>
 
-      {/* Add create Modal with button press */}
-      <div className="btn1">
-        <CreatePassportButton onClick={toggleModal}>
-          + Add New Passport
-        </CreatePassportButton>
-      </div>
-      {/* 
-      <div>
-        {modalOpen ? <PassportModal toggleModal={toggleModal} /> : null}
-      </div> */}
-
+      <p className="myPassportsContainer">
+        {state.myPassports &&
+          state.myPassports.map(passport => (
+            <MyPassport address={passport} props={props} />
+          ))}
+      </p>
       {modalOpen ? (
         <PassportModal
-          toggleModal={toggleModal}
           modalOpen={modalOpen}
+          openModal={openModal}
+          closeModal={closeModal}
+          openCreateModal={openCreateModal}
+          closeCreateModal={closeCreateModal}
+          createModalOpen={createModalOpen}
           history={props.history}
         />
       ) : null}
-      {/* 
-      {modalOpen2 ? (
-        <CreatedModal
-          toggleModal2={toggleModal2}
-          modalOpen2={modalOpen2}
-          history={props.history}
-        />
-      ) : null} */}
     </div>
   );
 }

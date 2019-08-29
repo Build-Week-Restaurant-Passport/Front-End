@@ -9,7 +9,7 @@
   margin-top: 5%;
 }
 
-.passport-form {
+.passport-modal-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,18 +31,18 @@ img {
   width: 300px;
 }
 
-.passport-input {
+.passport-modal-input {
   padding: 10px;
   border-radius: 5px;
   width: 300px;
 }
 
-.create-btn {
+.modal-create-btn {
   width: 300px;
   height: 40px;
 }
 
-.h2-lines {
+.h2-modal-lines {
   width: 33%;
   height: 1px;
   background: #000;
@@ -50,11 +50,11 @@ img {
   z-index: -1;
 }
 
-.h2-position {
+.h2-modal-position {
   margin-left: 45%;
 }
 
-h2 {
+.h2-modal-position h2 {
   width: 75px;
   background: white;
   padding: 0 10px;
@@ -82,7 +82,7 @@ h2 {
     flex-direction: column;
   }
 
-  .h2-lines {
+  .h2-modal-lines {
     position: static;
     width: 55vw;
     height: 1px;
@@ -91,17 +91,13 @@ h2 {
     margin: 25px 0 -40px 20%;
   }
 
-  .h2-position {
+  .h2-modal-position {
     margin-left: 44%;
   }
 
-  h2 {
+  .h2-modal-position h2 {
     width: 12vw;
     background: white;
     padding: 0 10px;
-  }
-
-  .passportImage {
-    display: none;
   }
 }

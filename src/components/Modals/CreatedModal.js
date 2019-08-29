@@ -7,31 +7,43 @@ import {
   CheckitOutButton
 } from "../styled-components/Button";
 
+import "./CreatedModal.css";
+
 const CreatedModal = props => {
   console.log("created modal", props);
   return (
     <Modal
       className="modal"
-      open={props.modalOpen}
-      onClose={props.modalOpen}
-      centerd={true}
-      closeIcon
+      open={props.openModal}
+      onClose={props.closeModal}
+      closeIcon={true}
+      style={{
+        display: "flex",
+        alignItems: "center"
+      }}
     >
-      <Modal.Header></Modal.Header>
-      <Modal.Content image>
-        <Image
-          className="donut"
-          wrapped
-          size="medium"
-          src="https://i.imgur.com/hJeZXwx.png"
-        />
-
+      <Modal.Content
+        style={{
+          flexDirection: "column",
+          textAlign: "center",
+          height: "500px"
+        }}
+      >
         <Modal.Description>
-          <Header>New Passport Created!</Header>
+          <img
+            className="popsicleImg"
+            size="medium"
+            src="https://i.imgur.com/hJeZXwx.png"
+            alt="popsicle"
+          />
+          <Modal.Header>
+            <h3>New Passport Created!</h3>
+          </Modal.Header>
+
           <p>Now let the foodie in you run wild in a brand new city!</p>
-          <CheckitOutButton onClick={props.toggleModal}>
-            Check it out
-          </CheckitOutButton>
+          <div className="btnbox">
+            <CheckitOutButton>Check it out</CheckitOutButton>
+          </div>
         </Modal.Description>
       </Modal.Content>
     </Modal>

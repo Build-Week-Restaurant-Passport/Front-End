@@ -3,7 +3,10 @@ import "./HeaderCSS.css";
 import { HeaderButton } from "../styled-components/Button";
 import { Link } from "react-router-dom";
 
+const headerFiles = [{}];
+
 const Header = () => {
+  const headerFiles = [{}];
   return (
     <header>
       <div className="logoContainer">

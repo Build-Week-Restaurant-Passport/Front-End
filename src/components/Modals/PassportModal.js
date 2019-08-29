@@ -21,14 +21,8 @@ const PassportModal = props => {
   const [active, setActive] = useState(true);
   const [cityname, setcityname] = useState({ cityname: "" });
   const [location, setLocation] = useState();
-  console.log("success modal props", props);
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const clickHandler = () => {
-    props.toggleModal();
-    // props.history.push("/restaurants");
-  };
+  console.log("passport modal props", props);
+  console.log("props.createModalOpen", props.createModalOpen);
 
   const handleChange = e => {
     e.preventDefault();
@@ -41,18 +35,6 @@ const PassportModal = props => {
     }
   };
 
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
-
-  // const openModal = () => {
-  //   setModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
-
   const showPosition = position => {
     setLocation({
       lat: position.coords.latitude,
@@ -60,25 +42,17 @@ const PassportModal = props => {
     });
   };
   const handleSubmit = e => {
+    props.openModal();
     console.log("in submit handler");
     e.preventDefault();
     // dispatch(getCities(props, address));
     dispatch(addPassports(cityname));
-    props.toggleModal();
-    // props.history.push("/mypassports");
+    console.log("sub test:", props);
+    props.history.push("/mypassports");
   };
   return (
     <Dimmer.Dimmable as={Segment} dimmed={active}>
-      <Modal
-        closeIcon
-        style={{
-          display: "flex",
-          alignItems: "center"
-        }}
-        open={props.modalOpen}
-        onClose={props.modalOpen}
-        centered={true}
-      >
+      <Modal open={props.openModal} onClose={props.closeModal} closeIcon={true}>
         <Modal.Content
           style={{
             flexDirection: "column",
@@ -93,13 +67,13 @@ const PassportModal = props => {
           </Modal.Header>
           <Modal.Description>
             <img
-              className="map-img"
+              className="modal-map-img"
               src="https://i.imgur.com/AiqKGkF.png"
               alt="Delicious Pasta"
             />
-            <form className="passport-form" onSubmit={handleSubmit}>
+            <form className="passport-modal-form" onSubmit={handleSubmit}>
               <input
-                className="passport-input"
+                className="passport-modal-input"
                 onChange={handleChange}
                 type="text"
                 name="cityname"
@@ -107,25 +81,25 @@ const PassportModal = props => {
                 value={cityname.cityname}
               />
               <ButtonContainer
-                className="create-btn"
+                className="modal-create-btn"
                 type="submit"
                 onSubmit={handleSubmit}
-                onClick={toggleModal}
+                onClick={props.openCreateModal}
               >
                 Create
               </ButtonContainer>
             </form>
             <div>
-              {modalOpen ? (
+              {props.createModalOpen ? (
                 <CreatedModal
-                  toggleModal={toggleModal}
-                  modalOpen={modalOpen}
+                  openModal={props.openModal}
+                  closeModal={props.closeCreateModal}
                   history={props.history}
                 />
               ) : null}
             </div>
-            <div className="h2-lines"></div>
-            <h2 className="h2-position">or</h2>
+            <div className="h2-modal-lines"></div>
+            <h2 className="h2-modal-position">or</h2>
             <a onClick={getLocation}>Use my current location</a>
             <p>(This will prompt you to enable your location services)</p>
           </Modal.Description>
@@ -136,41 +110,3 @@ const PassportModal = props => {
 };
 
 export default PassportModal;
-
-/* <div className="passport-wrapper">
-      <div className="passportContainer">
-        <h1>Congrats! You're almost there!</h1>
-        <h3 className="h3-spacing">
-          What city do you want to create <br /> your passport for?
-        </h3>
-
-        <img
-          className="map-img"
-          src="https://i.imgur.com/AiqKGkF.png"
-          alt="Delicious Pasta"
-        />
-
-        <form className="passport-form" onSubmit={handleSubmit}>
-          <input
-            className="passport-input"
-            onChange={handleChange}
-            type="text"
-            name="address"
-            placeholder="Washington, DC"
-            value={address}
-          />
-          <ButtonContainer
-            className="create-btn"
-            type="submit"
-            onSubmit={handleSubmit}
-            onClick={toggleModal}
-          >
-            Create
-          </ButtonContainer>
-        </form>
-        <div className="h2-lines"></div>
-        <h2 className="h2-position">or</h2>
-        <a onClick={getLocation}>Use my current location</a>
-        <p>(This will prompt you to enable your location services)</p>
-      </div> 
-    </div> */

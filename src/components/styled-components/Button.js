@@ -6,11 +6,12 @@ export const ButtonContainer = styled.button`
   border: none;
   padding: 0.3125rem 0.625rem;
   color: #fff;
-  width: 9.375rem;
-  height: 1.875rem;
+  width: 16rem;
+  height: 3rem;
   margin-top: 0.6rem;
   background: #e65400;
   transition: all ease-in 0.2s;
+  font-size: 1.5rem;
   &:hover {
     background: #b09c9c;
     cursor: pointer;

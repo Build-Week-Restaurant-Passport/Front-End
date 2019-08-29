@@ -13,20 +13,12 @@ export default function Passports(props) {
   const [modalOpen, setModalOpen] = useState(false);
   console.log("modal test:", modalOpen);
 
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
   const closeModal = () => {
     setModalOpen(false);
   };
 
-  const exModal = () => {
-    setModalOpen(modalOpen);
+  const openModal = () => {
+    setModalOpen(true);
   };
 
   const [address, setAddress] = useState("");
@@ -64,7 +56,6 @@ export default function Passports(props) {
   };
 
   const clickHandler = () => {
-    toggleModal();
     props.history.push("/restaurants");
   };
 
@@ -95,7 +86,7 @@ export default function Passports(props) {
             className="create-btn"
             type="submit"
             onSubmit={handleSubmit}
-            onClick={toggleModal}
+            onClick={openModal}
           >
             Create
           </ButtonContainer>
@@ -111,7 +102,6 @@ export default function Passports(props) {
         alt="Delicious Pasta"
         className="passportImage"
       />
-      {/* <SuccessModal toggleModal={toggleModal} /> */}
       <div>
         {modalOpen ? (
           <Modal

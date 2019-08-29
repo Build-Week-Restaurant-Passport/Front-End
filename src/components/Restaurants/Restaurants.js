@@ -66,10 +66,11 @@ export default function Restaurants(props) {
         .toLowerCase()
         .includes(categories.toLowerCase())
   );
+  console.log("restaurants", state.restaurants);
   return (
     <RestauransContainer>
       <div className="flex-searchbar">
-        <h1>Restaurants</h1>
+        <h1 className="searchBar-title">Restaurants</h1>
         <Accordion className="searchBarcontainer">
           <Accordion.Title
             active={activeIndex === 0}

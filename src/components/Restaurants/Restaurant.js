@@ -63,7 +63,7 @@ export default function Restaurant({ restaurant, index }) {
               {restaurant.restaurant.name}
             </Card.Header>
 
-            <Card.Description>
+            <Card.Description style={{ maxHeight: "55px" }}>
               <span>
                 {[...Array(price_range)].map((obj, index) => (
                   <i
@@ -85,6 +85,14 @@ export default function Restaurant({ restaurant, index }) {
               <br />
               {state.restaurants[index].visited ? (
                 <Image
+                  style={{
+                    height: "150px",
+                    width: "150px",
+                    margin: "0",
+                    position: "relative",
+                    bottom: "50px",
+                    left: "150px"
+                  }}
                   src="https://i.imgur.com/b5XLrth.png"
                   className="sameSizeImages"
                   onClick={handleChange}

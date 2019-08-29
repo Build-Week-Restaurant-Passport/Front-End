@@ -71,7 +71,7 @@ const RestaurantPage = props => {
       localStorage.removeItem(`${id}`);
     }
 
-    dispatch(setVisit(index, bool));
+    dispatch(setVisit({ index }));
   };
 
   const Button = styled.button`
