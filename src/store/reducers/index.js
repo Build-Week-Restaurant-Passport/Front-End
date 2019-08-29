@@ -11,7 +11,9 @@ import {
   GET_RESTAURANTS_START,
   GET_RESTAURANTS_SUCCESS,
   GET_RESTAURANTS_FAILURE,
-  ADD_PASSPORTS,
+  ADD_PASSPORTS_START,
+  ADD_PASSPORTS_SUCCESS,
+  ADD_PASSPORTS_FAILURE,
   SET_LATLNG,
   SET_VISIT,
   DELETE_PASSPORT,
@@ -31,6 +33,7 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
+  console.log("state from reducer", state);
   switch (action.type) {
     case POST_DATA_START:
       return {
@@ -80,7 +83,7 @@ function rootReducer(state = initialState, action) {
     case GET_PASSPORTS_SUCCESS:
       return {
         ...state,
-        passports: action.payload,
+        myPassports: action.payload,
         isLoading: false,
         error: ""
       };
@@ -114,10 +117,24 @@ function rootReducer(state = initialState, action) {
         error: action.payload,
         isLoading: false
       };
-    case ADD_PASSPORTS:
+    case ADD_PASSPORTS_START:
       return {
         ...state,
-        myPassports: [...state.myPassports, action.payload]
+        isLoading: true,
+        error: ""
+      };
+    case ADD_PASSPORTS_SUCCESS:
+      return {
+        ...state,
+        myPassports: [...state.myPassports, action.payload],
+        isLoading: false,
+        error: ""
+      };
+    case ADD_PASSPORTS_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
       };
     case SET_LATLNG:
       return {
@@ -132,8 +149,10 @@ function rootReducer(state = initialState, action) {
           temp.restaurants[index].visited = !temp.restaurants[index].visited;
         }
       });
+      console.log("temp", [...temp.restaurants]);
       return {
-        ...temp
+        ...state,
+        restaurants: [...temp.restaurants]
       };
     case DELETE_PASSPORT:
       return {

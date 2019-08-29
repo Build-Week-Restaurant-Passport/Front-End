@@ -7,6 +7,7 @@ import Restaurant from "./Restaurant";
 import { Input, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import { LoadMoreButton } from "../styled-components/Button";
+import "./Restaurants.css";
 
 const RestauransContainer = styled.div`
   width: 80%;
@@ -15,8 +16,7 @@ const RestauransContainer = styled.div`
 const RestaurantList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-content: stretch;
+  justify-content: space-between;
 `;
 
 const BtnFooter = styled.div`
@@ -29,6 +29,10 @@ const BtnFooter = styled.div`
     padding: 20px;
   }
 `;
+const FlexSreachBarName = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export default function Restaurants(props) {
   const state = useSelector(state => state);
@@ -40,7 +44,7 @@ export default function Restaurants(props) {
     dispatch(getRestaurants(state.latlng));
   }, [dispatch, state.latlng]);
   console.log(state);
-  console.log(state.restaurants);
+  console.log("state from restaurants component", state.restaurants);
 
   const changeHandler = event => {
     setCategories(event.target.value);
@@ -60,18 +64,23 @@ export default function Restaurants(props) {
   );
   return (
     <RestauransContainer>
-      <h2>Restaurants</h2>
-      <form onSubmit={changeSubmit}>
-        <Input
-          className="searchInput"
-          icon={<Icon name="search" inverted circular link />}
-          type="text"
-          name="restaurant_search"
-          onChange={changeHandler}
-        ></Input>
-      </form>
+      <div className="flex-searchbar">
+        <h1>Restaurants</h1>
 
-      <RestaurantList>
+        <Icon name="search" inverted circular link />
+
+        <form onSubmit={changeSubmit} className="search-form">
+          <Input
+            id="searchInputId"
+            className="searchInput"
+            type="text"
+            name="restaurant_search"
+            onChange={changeHandler}
+          ></Input>
+        </form>
+      </div>
+
+      <RestaurantList className="restaurants">
         {state.isLoading === true ? (
           <Loader type="TailSpin" color="#e65400" height={80} width={80} />
         ) : (

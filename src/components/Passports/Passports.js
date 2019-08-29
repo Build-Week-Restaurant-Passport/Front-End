@@ -100,7 +100,7 @@ export default function Passports(props) {
         className="passportImage"
       />
       {/* <SuccessModal toggleModal={toggleModal} /> */}
-      <div>
+      <div className="modalcontainer">
         {modalOpen ? (
           <Modal open={modalOpen} onClose={modalOpen}>
             <Modal.Content image>

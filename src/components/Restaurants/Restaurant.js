@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 
 const RestaurantCard = styled.div`
   width: 20%;
-  margin: 20px 40px;
-
+  margin-top: 3rem;
   @media screen and (max-width: 500px) {
     width: 100%;
     margin: 20px 40px;
@@ -19,7 +18,9 @@ const RestaurantCard = styled.div`
 export default function Restaurant({ restaurant, index }) {
   // console.log(restaurant);
   // console.log(index);
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
+  console.log("redux state from restaurant", state);
 
   const starsCount = Math.round(
     restaurant.restaurant.user_rating.aggregate_rating
@@ -47,11 +48,12 @@ export default function Restaurant({ restaurant, index }) {
       className="restaurantLink"
       to={{
         pathname: `/restaurant/${restaurant.restaurant.id}`,
-        restaurant: restaurant
+        restaurant: restaurant,
+        index: index
       }}
     >
       <RestaurantCard className="restaurantCard">
-        <Card className="sameSize">
+        <div className="sameSize">
           <Image
             src={restaurant.restaurant.featured_image}
             wrapped
@@ -59,7 +61,9 @@ export default function Restaurant({ restaurant, index }) {
             className="sameSizeImages"
           />
           <Card.Content>
-            <Card.Header>{restaurant.restaurant.name}</Card.Header>
+            <Card.Header className="name">
+              {restaurant.restaurant.name}
+            </Card.Header>
 
             <Card.Description>
               <span>
@@ -75,63 +79,23 @@ export default function Restaurant({ restaurant, index }) {
               <span>
                 {[...Array(starsCount)].map((obj, index) => (
                   <i
-                    className="fas fa-star text-gold"
+                    className="fas fa-star stars"
                     key={`${obj}?index=${index}`}
                   />
                 ))}
               </span>
               <br />
-              <HideInfo>
-                <Checkbox
-                  toggle
+              {state.restaurants[index].visited ? (
+                <Image
+                  src="https://i.imgur.com/b5XLrth.png"
+                  className="sameSizeImages"
                   onClick={handleChange}
-                  label="I've Been Here"
                 />
-              </HideInfo>
+              ) : null}
             </Card.Description>
           </Card.Content>
-        </Card>
+        </div>
       </RestaurantCard>
     </Link>
   );
 }
-
-/* <Segment>
-        <Item.Group>
-          <Item>
-            <Item.Image src={restaurant.restaurant.featured_image} />
-            <Item.Content>
-              <Item.Header>{restaurant.restaurant.name}</Item.Header>
-              <Item.Description>
-                <span>
-                  {[...Array(price_range)].map((obj, index) => (
-                    <i
-                      className="fas fa-dollar-sign"
-                      key={`${obj}?index=${index}`}
-                    ></i>
-                  ))}
-                </span>
-                &nbsp; &middot; &nbsp;
-                {restaurant.restaurant.cuisines} <br />
-                Address: {restaurant.restaurant.location.address}
-              </Item.Description>
-              <span>
-                {[...Array(starsCount)].map((obj, index) => (
-                  <i
-                    className="fas fa-star text-gold"
-                    key={`${obj}?index=${index}`}
-                  />
-                ))}
-              </span>
-              &nbsp; Menu : &nbsp;
-              <a
-                href={restaurant.restaurant.menu_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-book-open"></i>
-              </a>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Segment> */

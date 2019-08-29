@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 
 const SignUp = props => {
   const [form, setForm] = useState({
-    email: "string",
-    fname: "string",
-    lname: "string",
-    password: "string"
+    email: "",
+    fname: "",
+    lname: "",
+    password: ""
   });
 
   const handleChange = e => {

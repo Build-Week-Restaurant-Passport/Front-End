@@ -84,33 +84,30 @@ export const getPassports = props => {
   return dispatch => {
     dispatch({ type: GET_PASSPORTS_START });
     axios
-      .get(
-        `https://developers.zomato.com/api/v2.1/geocode?lat=28.538336&lon=-81.379234`,
-        zomatoConfig
-      )
+      .get(`https://efrain-restaurant.herokuapp.com/group/city`)
       .then(res => {
-        console.log("in actions", res.data);
-        dispatch({
-          type: GET_PASSPORTS_SUCCESS,
-          payload: res.data.location_suggestions
-        });
+        console.log("getPassports actions success", res.data);
+        dispatch({ type: GET_PASSPORTS_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        console.log("actions", err);
+        console.log("getPassports actions error", err);
         dispatch({ type: POST_REG_FAILURE, payload: err });
       });
   };
 };
 // cities
 export const addPassports = props => {
+  console.log("props", props);
   return dispatch => {
     dispatch({ type: ADD_PASSPORTS_START });
     axios
-      .post(``)
+      .post(`https://efrain-restaurant.herokuapp.com/group/city/add`, props)
       .then(res => {
+        console.log(res);
         dispatch({ type: ADD_PASSPORTS_SUCCESS, payload: props });
       })
       .catch(err => {
+        console.log(err.response);
         dispatch({ type: ADD_PASSPORTS_FAILURE, payload: err.response });
       });
   };
