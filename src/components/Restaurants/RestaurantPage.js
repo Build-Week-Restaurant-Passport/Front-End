@@ -33,6 +33,7 @@ const RestaurantPage = props => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [restaurantInfo, setRestaurantInfo] = useState({});
   const [open, setOpen] = useState(false);
+  console.log("modal open state:", open);
 
   useEffect(() => {
     axios
@@ -145,6 +146,13 @@ const RestaurantPage = props => {
         </span>
         <div className="buttons">
           <Button>Directions</Button>
+          {open ? (
+            <DeleteModal
+              openModal={openModal}
+              closeModal={closeModal}
+              history={props.history}
+            />
+          ) : null}
           {state.restaurants[index].visited ? (
             <>
               <Button2
@@ -155,16 +163,6 @@ const RestaurantPage = props => {
               >
                 Unpunch
               </Button2>
-
-              <div>
-                {open ? (
-                  <DeleteModal
-                    openModal={openModal}
-                    closeModal={closeModal}
-                    history={props.history}
-                  />
-                ) : null}
-              </div>
             </>
           ) : (
             <Button2 onClick={() => passportPunch(index, true)}>Punch</Button2>
