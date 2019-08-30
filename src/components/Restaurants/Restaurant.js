@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Item, Card, Image, Checkbox, Grid } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 import "./Restaurants.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setVisit } from "../../store/actions";

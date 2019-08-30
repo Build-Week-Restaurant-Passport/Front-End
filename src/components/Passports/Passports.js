@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setLatLng, addPassports } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
 import "./Passport.css";
 import axios from "axios";
 // import SuccessModal from "../Modals/SuccessModal";
-import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
+import { Button, Image, Modal } from "semantic-ui-react";
 
 export default function Passports(props) {
   const dispatch = useDispatch();
