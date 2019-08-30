@@ -58,7 +58,7 @@ export default function Footer() {
 
         <BulletGroup>
           <Bulletlist>
-            <Link className="navword" activeClassName="active" to="/terms">
+            <Link className="navword" activeclassname="active" to="/terms">
               Terms and Conditions
             </Link>
           </Bulletlist>

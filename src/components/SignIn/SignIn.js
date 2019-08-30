@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { postLogin } from "../../store/actions";
 import "./SignIn.css";
@@ -16,9 +16,13 @@ const Signin = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.postLogin(form);
-
-    props.history.push("/passports");
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      props.history.push("/passports");
+    }
+  }, [localStorage.getItem("token")]);
 
   return (
     <div className="login">

@@ -12,9 +12,6 @@ import {
 export default function MyPassport({ address, props, idx, id }) {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
-  const openModal = () => {
-    props.setModalOpen(true);
-  };
 
   const deletePassport = () => {
     dispatch(removePassport(idx, address.cityid));
