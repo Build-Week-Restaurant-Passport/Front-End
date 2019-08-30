@@ -58,9 +58,9 @@ export default function Passports(props) {
       )
       .then(res => {
         dispatch(setLatLng(res.data.results[0].locations[0].latLng));
-        props.history.push("/restaurants");
       })
       .catch(err => console.log(err));
+    props.history.push("/mypassports");
   };
   console.log(cityname.cityname);
   return (
