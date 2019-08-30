@@ -1,0 +1,50 @@
+.mypassportsTitleContainer {
+  width: 90%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+.mypassportsTitle {
+  display: flex;
+}
+.btn1 {
+  position: absolute;
+  right: 100px;
+  display: flex;
+  padding-top: 20px;
+}
+
+.btn2 {
+  position: absolute;
+  right: 350px;
+  display: flex;
+  padding-top: 20px;
+}
+.myPassportsContainer {
+  margin: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.passportCard {
+  width: 28%;
+  margin: 2rem 0;
+}
+@media screen and (max-width: 800px) {
+  .mypassportsTitle {
+    flex-direction: column;
+  }
+  .passportCard {
+    width: 45%;
+    margin: 2rem auto;
+  }
+  .btnContainer {
+    margin: 0 auto 2rem auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .passportCard {
+    width: 80%;
+    margin: 2rem auto;
+  }
+}

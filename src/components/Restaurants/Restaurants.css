@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css?family=Signika&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+.searchBar-title {
+  font-family: "Signika", sans-serif !important;
+  font-size: 3rem !important;
+}
+
+.active {
+  background-color: whitesmoke !important;
+  color: black !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.name {
+  color: black;
+  font-size: 1.45rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.subheader {
+  color: black;
+  margin-top: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+}
+
+.form {
+  margin-left: 8rem;
+}
+
+.restaurantPage {
+  display: flex;
+}
+
+.sideOne {
+  width: 60%;
+}
+
+.sideOne img {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+}
+
+.sideTwo {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 1rem;
+}
+
+.stars {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #ff8e4d;
+}
+
+.buttons {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewSideOne {
+  margin: 0 0 0 0;
+  width: 30%;
+}
+
+.reviewSideOne img {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.reviewSideTwo {
+  width: 65%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.sameSize {
+  min-height: 23rem !important;
+  margin: 0 auto !important;
+}
+a.restaurantLink {
+  margin: 1rem 0;
+}
+.restaurantLink a:hover {
+  box-shadow: 0 0 10px #ccc;
+}
+
+.sameSizeImages img {
+  min-height: 12rem;
+  max-height: 15rem;
+  border-radius: 12px;
+}
+.restaurantCard {
+  width: 100%;
+  border-bottom: 1px solid #ddd5d4;
+  margin: 0 10px;
+}
+.search.inverted.circular.link {
+  margin: 0 0 1rem 1.5rem !important;
+}
+.flex-searchbar {
+  display: flex;
+}
+.searchBar-title {
+  margin: 0 0 5px 0;
+}
+.search-form {
+  margin: 0 0 0 2rem;
+}
+.searchBarcontainer {
+  display: flex;
+  background: white;
+  padding: 0 0 1rem 0;
+}
+.searchBarcontainer .content.active {
+  background: white !important;
+  padding: 0 0 5px 0;
+}
+.searchBarcontainer .title {
+  padding: 0 0 0 0;
+}
+.searchBarcontainer .title.active {
+  background: white !important;
+  padding: 0 0 0 0;
+}
+
+.search.inverted.circular.link {
+  margin-top: 0.5rem !important;
+  margin-left: 1rem !important;
+}
+
+.visitedStamp {
+  width: 70px !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 500px) {
+  .sameSize {
+    min-height: 10rem !important;
+  }
+
+  .restaurantPage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .sideOne {
+    width: 100%;
+  }
+  .sideTwo {
+    width: 100%;
+  }
+  .buttons {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  .sideTwo {
+    margin: 0;
+  }
+  .flex-searchbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search.inverted.circular.link {
+    margin: 0 0 0 0 !important;
+  }
+}

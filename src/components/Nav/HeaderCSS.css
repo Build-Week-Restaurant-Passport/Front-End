@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Signika&display=swap);
+
+header {
+  width: 100%;
+  border-bottom: 1px solid #ff8e4d;
+}
+.headertitle {
+  margin: 10px 0 0 0;
+  font-size: 2.5rem;
+  font-family: "Signika", sans-serif;
+}
+/* Phone Size- word disappears */
+@media screen and (max-width: 500px) {
+  .headertitle {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  color: #e60800;
+  margin: 1rem 0 0 0;
+}
+
+/* Phone Size- move logo down slightly*/
+@media screen and (max-width: 500px) {
+  .logo {
+    padding: 10px;
+  }
+}
+
+.logoImg {
+  width: 45px;
+  height: auto;
+}
+
+.buttonGroup {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+.logoContainer {
+  position: relative;
+  width: 100%;
+  height: 7rem;
+}
+.active {
+  text-decoration: none;
+  background-color: #e60800;
+  color: white;
+}
+.dropdownGroup {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  color: white;
+  padding: 5px;
+  margin-right: 7.5px;
+  /* background-color: #e60800; */
+}
+
+.menulist {
+  background-color: #e60800;
+}
+
+span.text {
+  margin: 0 auto;
+}
+
+a.item {
+  color: #e60800;
+}
+
+div.ui.compact.menulist.menu {
+  background: red;
+}
+div.text {
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Signika", sans-serif;
+}
+div.visible.menu.transition {
+  margin: 10px 0 0 0 !important;
+  width: 200px !important;
+  height: 200px !important;
+}
+div.menu.transition {
+  margin: 10px 0 0 0 !important;
+  width: 200px !important;
+  height: 200px !important;
+}
+div.ui.simple.dropdown {
+  margin-right: 25px;
+  background: red;
+}
+div.ui.active.visible.item.simple.dropdown {
+  background: red !important;
+}
+i.dropdown.icon::before {
+  padding: 3px;
+}
+
+div.ui.compact.menulist.menu {
+  border: none;
+}
+
+/* Phone size */
+@media (max-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .logoContainer {
+    height: 5.5rem;
+  }
+  div.ui.compact.menulist.menu {
+    width: 80px;
+    height: 40px !important;
+  }
+  div.ui.simple.dropdown {
+    margin-right: 25px;
+    background: red;
+    width: 80px;
+    height: 40px !important;
+  }
+  div.text {
+    font-size: 1rem;
+  }
+  .dropdownGroup {
+    top: 20px;
+    left: 10px;
+  }
+}

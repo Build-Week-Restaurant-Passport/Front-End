@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Font-End-Restaurant-Passport
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Our product solves this problem by suggesting restaurants nearby for users. This takes off the unnecessary stress of trying to figure out where to eat. It also solves their issue of always eating at the same place, because we are giving them new suggestions that they may not have been too. Lastly, they are able to track their visual progress for themselves or to show their friends, by using our passport ability. The passport ability gives them the ease of visually seeing where they have been by “punching off” a restaurant once they go to it.<br />
 
-### `npm start`
+At RestaurantPassport we aim to give our users a stress-free eating experience by easily finding somewhere to satisfy their stomachs.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Websites
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Marketing Website - https://hopeful-borg-8e270f.netlify.com/index.html <br />
+App Website - https://restaurants-nearby.netlify.com/home <br />
+Full Repo - https://github.com/Build-Week-Restaurant-Passport <br />
+Product Canvas - https://docs.google.com/document/d/1aeX2clp87SvD-Tsn4T3nHfj_svAr1LyZnwN9HtmegJU/edit#heading=h.lrymgwasdp9o <br />
 
-### `npm test`
+## Authors
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+UX Designer:<br/>
+Morgan Gibson<br/><br/>
 
-### `npm run build`
+UI (Marketing Website) : <br />
+Igor Tavarez (https://github.com/itava0)<br />
+Ian Schwartz (https://github.com/ian-schwartz)<br/><br/>
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Front End Engineers: <br />
+Isaiah Francois (https://github.com/FrancoisCoding)<br />
+Jonathan Scott (https://github.com/jondscott21)<br />
+John Schneider (https://github.com/johnschneider1)<br />
+Ben Solt (https://github.com/BenSolt)<br />
+Min Huang (https://github.com/huangm96)<br /><br />
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Back End Engineer: <br />
+Efrain Vazquez (https://github.com/efrainva)

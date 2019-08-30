@@ -1,0 +1,43 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background: #ff6f1a;
+}
+
+.navword {
+  color: white;
+  text-decoration: none;
+  transition: all ease-in 0.3s;
+}
+
+.navword a:hover {
+  color: black;
+}
+
+.bulletpoint {
+  padding: 0 14px 0 14px;
+}
+
+.Logoholder {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.LogoFooter {
+  justify-content: center;
+  width: 35px;
+  height: auto;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  color: #f4f1f1;
+  padding-bottom: 20px;
+}
+
+/* .flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+} */
