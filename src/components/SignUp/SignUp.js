@@ -94,9 +94,11 @@ const SignUp = props => {
               <span className="privacyNav">Privacy Statement</span>
             </NavLink>
           </div>
+          {/* <NavLink to="/home"> */}
           <button className="loginSubmit" type="submit">
             Continue
           </button>
+          {/* </NavLink> */}
         </form>
       </div>
       <img

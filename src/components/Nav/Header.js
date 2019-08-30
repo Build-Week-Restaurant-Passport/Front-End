@@ -35,7 +35,7 @@ const options = [
   },
   {
     key: "logout",
-    icon: <img src="https://i.imgur.com/aSGAS6V.png" alt="logout" />,
+    icon: <img src="https://i.imgur.com/IrxrHwG.png" alt="logout" />,
     text: "Logout",
     as: Link,
     to: "/signout"

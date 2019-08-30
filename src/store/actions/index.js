@@ -59,13 +59,12 @@ export const postLogin = form => dispatch => {
 };
 
 export const postRegister = form => dispatch => {
-  // console.log("post reg test:", props);
   dispatch({ type: POST_REG_START });
   axios
     .post(`https://efrain-restaurant.herokuapp.com/group/add`, form)
     .then(res => {
+      console.log(res);
       dispatch({ type: POST_REG_SUCCESS, payload: res.data });
-      // props.history.pushState("/signin");
     })
     .catch(err => {
       console.log("error test:", err);

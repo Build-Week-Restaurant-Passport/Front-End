@@ -41,7 +41,11 @@ export default function Restaurant({ restaurant, index }) {
       <RestaurantCard className="restaurantCard">
         <div className="sameSize">
           <Image
-            src={restaurant.restaurant.featured_image}
+            src={
+              restaurant.restaurant.featured_image.length > 2
+                ? restaurant.restaurant.featured_image
+                : `https://i.imgur.com/7YHZ8gM.jpg`
+            }
             wrapped
             ui={false}
             className="sameSizeImages"
