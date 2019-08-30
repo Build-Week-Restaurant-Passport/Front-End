@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
 import Passports from "../components/Passports/Passports";
@@ -16,6 +16,7 @@ import Signout from "../components/Nav/Signout";
 const Routes = () => {
   return (
     <div>
+      <Route exact path="/" render={() => <Redirect to="/home" />} />
       <Route path="/home" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/signout" component={Signout} />
