@@ -64,7 +64,7 @@ export const postRegister = form => dispatch => {
     .post(`https://efrain-restaurant.herokuapp.com/group/add`, form)
     .then(res => {
       console.log(res);
-      dispatch({ type: POST_REG_SUCCESS, payload: res.data });
+      dispatch({ type: POST_REG_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log("error test:", err);

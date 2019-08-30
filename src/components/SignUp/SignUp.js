@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { postRegister } from "../../store/actions";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import "./SignUp.css";
 import { NavLink } from "react-router-dom";
 
@@ -21,6 +21,12 @@ const SignUp = props => {
     e.preventDefault();
     props.postRegister(form);
   };
+
+  useEffect(() => {
+    if (props.statuscode == 200) {
+      props.history.push("/home");
+    }
+  }, [props.statuscode]);
 
   return (
     <div className="login">
@@ -94,11 +100,9 @@ const SignUp = props => {
               <span className="privacyNav">Privacy Statement</span>
             </NavLink>
           </div>
-          {/* <NavLink to="/home"> */}
           <button className="loginSubmit" type="submit">
             Continue
           </button>
-          {/* </NavLink> */}
         </form>
       </div>
       <img
@@ -113,7 +117,8 @@ const SignUp = props => {
 const mapStateToProps = state => {
   return {
     data: state.data,
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
+    statuscode: state.statuscode
   };
 };
 

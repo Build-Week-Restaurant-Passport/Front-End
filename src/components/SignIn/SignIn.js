@@ -19,10 +19,10 @@ const Signin = props => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (window.localStorage.getItem("token")) {
       props.history.push("/passports");
     }
-  }, [localStorage.getItem("token")]);
+  }, [props.history]);
 
   return (
     <div className="login">
