@@ -28,9 +28,9 @@ const SignUp = props => {
         <p className="formtitle">Sign Up</p>
 
         <div className="signinTextContainer">
-          <p className=" signinTextForMobile">Already Have an Account?</p>
+          <span className=" signinTextForMobile">Already Have an Account?</span>
           <NavLink to="/home">
-            <p className="signupNav">Sign in</p>
+            <span className="signupNav">Sign in</span>
           </NavLink>
         </div>
 
@@ -83,15 +83,15 @@ const SignUp = props => {
           </p>
 
           <div className="privacyTextContainer">
-            <p className=" privacyText">
+            <span className=" privacyText">
               By clicking Sign Up, you agree to our
-            </p>
+            </span>
             <NavLink to="/terms">
-              <p className="privacyNav">Terms and Conditions</p>
+              <span className="privacyNav">Terms and Conditions</span>
             </NavLink>
-            <p>and</p>
+            <span>and</span>
             <NavLink to="/privacypolicy">
-              <p className="privacyNav">Privacy Statement</p>
+              <span className="privacyNav">Privacy Statement</span>
             </NavLink>
           </div>
           <button className="loginSubmit" type="submit">

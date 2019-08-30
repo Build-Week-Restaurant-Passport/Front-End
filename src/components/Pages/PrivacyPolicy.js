@@ -75,7 +75,7 @@ function PrivacyPolicy() {
         reasons:
       </p>
       <br />
-      <ul>
+      <ul className="pc-ul">
         <li>To facilitate our Service</li>
         <li>To provide the Service on our behalf</li>
         <li>To perform Service-related services</li>

@@ -19,6 +19,9 @@ import {
   EDIT_PASSPORT,
   EDIT_PASSPORT_SUCCESS,
   EDIT_PASSPORT_FAILURE,
+  EDIT_CITY,
+  EDIT_CITY_SUCCESS,
+  EDIT_CITY_FAILURE,
   DELETE_PASSPORT,
   DELETE_PASSPORT_SUCCESS,
   DELETE_PASSPORT_FAILURE
@@ -177,6 +180,34 @@ function rootReducer(state = initialState, action) {
         isLoading: false
       };
     case DELETE_PASSPORT_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+
+    case EDIT_CITY:
+      return {
+        ...state,
+        error: "launch error",
+        isLoading: true
+      };
+    case EDIT_CITY_SUCCESS:
+      console.log("payload", action.payload);
+      const edited = { ...state };
+      edited.myPassports.map((el, idx) => {
+        if (el.cityid === action.payload.id) {
+          edited.myPassports[idx].cityname = action.payload.cityname;
+        }
+      });
+      console.log("city names", edited.myPassports);
+      console.log("city names", edited.myPassports.cityname);
+      return {
+        ...edited,
+        error: "",
+        isLoading: false
+      };
+    case EDIT_CITY_FAILURE:
       return {
         ...state,
         isLoading: false,

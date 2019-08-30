@@ -4,6 +4,7 @@
 }
 .pc-h1 {
   padding: 20px 0 0 0;
+  font-size: 3rem;
 }
 .pc-h2 {
   width: 70vw;
@@ -13,4 +14,12 @@
 }
 .pc-a {
   margin: 0 0 0 3px;
+}
+.pc-ul li {
+  font-size: 1.4rem;
+}
+@media screen and (max-width: 500px) {
+  h1 .pc-h1 {
+    font-size: 2rem;
+  }
 }

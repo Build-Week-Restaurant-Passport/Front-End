@@ -4,6 +4,7 @@ import { setLatLng, addPassports } from "../../store/actions";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ButtonContainer } from "../styled-components/Button";
 import "./Passport.css";
+import axios from "axios";
 // import SuccessModal from "../Modals/SuccessModal";
 import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
 
@@ -30,7 +31,7 @@ export default function Passports(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addPassports(address));
+    dispatch(addPassports(cityname));
   };
 
   const getLocation = e => {
@@ -49,10 +50,19 @@ export default function Passports(props) {
     }
   };
 
-  const clickHandler = () => {
-    props.history.push("/restaurants");
+  const clickHandler = e => {
+    e.preventDefault();
+    axios
+      .get(
+        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${cityname.cityname}`
+      )
+      .then(res => {
+        dispatch(setLatLng(res.data.results[0].locations[0].latLng));
+        props.history.push("/restaurants");
+      })
+      .catch(err => console.log(err));
   };
-
+  console.log(cityname.cityname);
   return (
     <div className="passport-wrapper">
       <div className="passportContainer">
@@ -72,7 +82,7 @@ export default function Passports(props) {
             className="passport-input"
             onChange={handleChange}
             type="text"
-            name="address"
+            name="cityname"
             placeholder="Washington, DC"
             value={cityname.cityname}
           />

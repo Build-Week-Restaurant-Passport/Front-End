@@ -31,7 +31,7 @@ const options = [
     icon: <img src="https://i.imgur.com/3yaROlo.png" />,
     text: "Help",
     as: Link,
-    to: "/con"
+    to: "/contact"
   },
   {
     key: "logout",

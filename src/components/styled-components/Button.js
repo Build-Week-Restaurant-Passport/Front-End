@@ -91,10 +91,13 @@ export const CreatePassportButton = styled(NavLink)`
   }
 `;
 
-export const DeletePassportButton = styled(NavLink)`
+export const DeletePassportButton = styled.button`
   background: #e65400;
+  font-size: 1rem;
   height: 30px;
-  width: 180px;
+  width: 100px;
+  border: none;
+  margin: 5px;
   border-radius: 20px;
   color: #fff;
   text-align: center;
@@ -109,8 +112,28 @@ export const DeletePassportButton = styled(NavLink)`
     background-color: #ffae80;
     color: white;
   }
-  @media (max-width: 500px) {
-    display: none;
+`;
+
+export const EditCityButton = styled.button`
+  background: #e65400;
+  font-size: 1rem;
+  height: 30px;
+  width: 100px;
+  border: none;
+  margin: 5px;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2rem;
+  &:hover {
+    background-color: #ffae80;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    background-color: #ffae80;
+    color: white;
   }
 `;
 

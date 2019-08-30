@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setLatLng, removePassport } from "../../../store/actions";
+import { setLatLng, removePassport, editCity } from "../../../store/actions";
 import axios from "axios";
 import { Card, Image } from "semantic-ui-react";
 import "./MyPassports.css";
-import { DeletePassportButton } from "../../styled-components/Button";
+import {
+  DeletePassportButton,
+  EditCityButton
+} from "../../styled-components/Button";
 
-export default function MyPassport({ address, props, idx }) {
+export default function MyPassport({ address, props, idx, id }) {
   const dispatch = useDispatch();
-  const addressFormat = [...address.cityname];
-
+  const [input, setInput] = useState("");
   const openModal = () => {
     props.setModalOpen(true);
   };
 
   const deletePassport = () => {
-    console.log(idx);
-    dispatch(removePassport(idx));
+    dispatch(removePassport(idx, address.cityid));
+  };
+
+  const updateCity = () => {
+    dispatch(editCity(id, input.cityname, idx));
   };
 
   const handleClick = e => {
@@ -31,6 +36,12 @@ export default function MyPassport({ address, props, idx }) {
       })
       .catch(err => console.log(err));
   };
+
+  const handleChange = e => {
+    e.preventDefault();
+    setInput({ [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="passportCard">
       <Card>
@@ -44,8 +55,15 @@ export default function MyPassport({ address, props, idx }) {
         />
         <Card.Content>
           <h3 onClick={handleClick}>{address.cityname}</h3>
+          <input
+            onChange={handleChange}
+            type="text"
+            name="cityname"
+            placeholder="Edit City"
+          />
+          <EditCityButton onClick={updateCity}>Edit</EditCityButton>
           <DeletePassportButton onClick={() => deletePassport(idx)}>
-            Delete Passport
+            Delete
           </DeletePassportButton>
         </Card.Content>
       </Card>

@@ -50,7 +50,12 @@ export default function MyPassports(props) {
       <p className="myPassportsContainer">
         {state.myPassports &&
           state.myPassports.map((passport, idx) => (
-            <MyPassport address={passport} props={props} idx={idx} />
+            <MyPassport
+              address={passport}
+              props={props}
+              idx={idx}
+              id={passport.cityid}
+            />
           ))}
       </p>
       {modalOpen ? (
