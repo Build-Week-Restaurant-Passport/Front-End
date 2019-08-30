@@ -23,7 +23,7 @@ h1 {
 
 .subheader {
   color: black;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   font-family: "Roboto", sans-serif;
 }
 
@@ -94,8 +94,11 @@ a:active {
 
 .sameSize {
   min-height: 23rem !important;
+  margin: 0 auto !important;
 }
-
+a.restaurantLink {
+  margin: 1rem 0;
+}
 .restaurantLink a:hover {
   box-shadow: 0 0 10px #ccc;
 }
@@ -108,6 +111,7 @@ a:active {
 .restaurantCard {
   width: 100%;
   border-bottom: 1px solid #ddd5d4;
+  margin: 0 10px;
 }
 .search.inverted.circular.link {
   margin: 0 0 1rem 1.5rem !important;

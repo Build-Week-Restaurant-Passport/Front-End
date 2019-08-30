@@ -5,24 +5,44 @@ import { Link } from "react-router-dom";
 import { Button, Dropdown, Menu } from "semantic-ui-react";
 
 const options = [
-  { key: "home", icon: "home", text: "Home", as: Link, to: "/home" },
+  {
+    key: "home",
+    icon: <img src="https://i.imgur.com/AERjI0V.png" />,
+    text: "Home",
+    as: Link,
+    to: "/home"
+  },
   {
     key: "passports",
-    icon: "file",
+    icon: <img src="https://i.imgur.com/u3x1sEo.png" />,
     text: "Passport",
     as: Link,
-    to: "/passports"
+    to: "/mypassports"
   },
   {
     key: "settings",
-    icon: "settings",
+    icon: <img src="https://i.imgur.com/AUXhgEy.png" />,
     text: "Settings",
     as: Link,
     to: "/home"
   },
-  { key: "help", icon: "help", text: "Help", as: Link, to: "/privacypolicy" },
-  { key: "logout", icon: "logout", text: "Logout", as: Link, to: "/signup" }
+  {
+    key: "help",
+    icon: <img src="https://imgur.com/3yaROlo" />,
+    text: "Help",
+    as: Link,
+    to: "/privacypolicy"
+  },
+  {
+    key: "logout",
+    icon: <img src="https://i.imgur.com/AERjI0V.png" />,
+    text: "Logout",
+    as: Link,
+    to: "/signup"
+  }
 ];
+
+// onClick={() => localStorage.removeItem("token")}
 
 const Header = () => {
   return (
@@ -40,11 +60,7 @@ const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="dropdown">
-        <Menu compact className="menulist">
-          <Dropdown text="menu" options={options} simple item />
-        </Menu>
-      </div>
+
       {localStorage.getItem("token") === null ? (
         <div className="buttonGroup">
           <HeaderButton to="/signup">Sign up</HeaderButton>
@@ -52,9 +68,14 @@ const Header = () => {
         </div>
       ) : (
         <div className="buttonGroup">
-          <HeaderButton onClick={() => localStorage.removeItem("token")}>
+          {/* <HeaderButton onClick={() => localStorage.removeItem("token")}>
             Sign Out
-          </HeaderButton>
+          </HeaderButton> */}
+          <div className="dropdown">
+            <Menu compact className="menulist">
+              <Dropdown text="menu" options={options} simple item />
+            </Menu>
+          </div>
         </div>
       )}
     </header>

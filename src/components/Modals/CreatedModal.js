@@ -42,7 +42,9 @@ const CreatedModal = props => {
 
           <p>Now let the foodie in you run wild in a brand new city!</p>
 
-          <ButtonContainer>Check it out</ButtonContainer>
+          <ButtonContainer onClick={() => props.history.push("/restaurants")}>
+            Check it out
+          </ButtonContainer>
         </Modal.Description>
       </Modal.Content>
     </Modal>

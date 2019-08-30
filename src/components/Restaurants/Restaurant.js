@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const RestaurantCard = styled.div`
   width: 20%;
   margin-top: 3rem;
+  margin: 0 auto;
   @media screen and (max-width: 500px) {
     width: 100%;
     margin: 20px 40px;

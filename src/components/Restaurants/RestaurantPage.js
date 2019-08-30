@@ -161,7 +161,12 @@ const RestaurantPage = props => {
           <Button>Directions</Button>
           {state.restaurants[index].visited ? (
             <>
-              <Button2 onClick={() => passportPunch(index, false)}>
+              <Button2
+                onClick={() => {
+                  openModal();
+                  passportPunch(index, false);
+                }}
+              >
                 Unpunch
               </Button2>
 

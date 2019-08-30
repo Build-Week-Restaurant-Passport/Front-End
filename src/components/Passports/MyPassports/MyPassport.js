@@ -4,6 +4,7 @@ import { setLatLng } from "../../../store/actions";
 import axios from "axios";
 import { Card, Image, Grid } from "semantic-ui-react";
 import "./MyPassports.css";
+
 export default function MyPassport({ address, props }) {
   console.log("address", address);
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function MyPassport({ address, props }) {
     // dispatch(getCities(props, address));
     axios
       .get(
-        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address}`
+        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address.cityname}`
       )
       .then(res => {
         console.log("mapquest apis", res);
