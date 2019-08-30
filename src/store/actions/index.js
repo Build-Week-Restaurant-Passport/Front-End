@@ -42,7 +42,7 @@ export const DELETE_PASSPORT = "DELETE_PASSPORT";
 export const DELETE_PASSPORT_SUCCESS = "DELETE_PASSPORT_SUCCESS";
 export const DELETE_PASSPORT_FAILURE = "DELETE_PASSPORT_FAILURE ";
 
-export const postLogin = form => dispatch => {
+export const postLogin = (form, props) => dispatch => {
   dispatch({ type: POST_DATA_START });
   axios
     .post(
@@ -55,7 +55,9 @@ export const postLogin = form => dispatch => {
         }
       }
     )
-    .then(res => localStorage.setItem("token", res.data.access_token));
+    .then(res => localStorage.setItem("token", res.data.access_token))
+    .then(res => props.history.push("/passports"))
+    .catch(err => console.log(err));
 };
 
 export const postRegister = form => dispatch => {
@@ -63,7 +65,8 @@ export const postRegister = form => dispatch => {
   axios
     .post(`https://efrain-restaurant.herokuapp.com/group/add`, form)
     .then(res => {
-      dispatch({ type: POST_REG_SUCCESS, payload: res.data });
+      console.log(res);
+      dispatch({ type: POST_REG_SUCCESS, payload: res });
     })
     .catch(err => {
       console.log("error test:", err);

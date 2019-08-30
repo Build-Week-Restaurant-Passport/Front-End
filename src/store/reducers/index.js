@@ -31,8 +31,8 @@ const initialState = {
   isLoading: false,
   restaurants: [],
   latlng: { lat: 13.874392, lng: 121.090756 },
-  error: ""
-  // visited: []
+  error: "",
+  statuscode: ""
 };
 
 function rootReducer(state = initialState, action) {
@@ -63,11 +63,14 @@ function rootReducer(state = initialState, action) {
         error: ""
       };
     case POST_REG_SUCCESS:
+      console.log("payload from post register", action.payload);
+      console.log("statuscode from state", state.statuscode);
       return {
         ...state,
-        data: action.payload,
+        data: action.payload.data,
         isLoading: false,
-        error: ""
+        error: "",
+        statuscode: action.payload.status
       };
     case POST_REG_FAILURE:
       return {

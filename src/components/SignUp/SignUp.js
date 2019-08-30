@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { postRegister } from "../../store/actions";
 import { connect } from "react-redux";
 import "./SignUp.css";
@@ -19,8 +19,14 @@ const SignUp = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.postRegister(form);
+    props.postRegister(form, props);
   };
+
+  useEffect(() => {
+    if (props.statuscode == 200) {
+      props.history.push("/home");
+    }
+  }, [props.statuscode]);
 
   return (
     <div className="login">
@@ -111,7 +117,8 @@ const SignUp = props => {
 const mapStateToProps = state => {
   return {
     data: state.data,
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
+    statuscode: state.statuscode
   };
 };
 

@@ -15,14 +15,14 @@ const Signin = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.postLogin(form);
+    props.postLogin(form, props);
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      props.history.push("/passports");
-    }
-  }, [localStorage.getItem("token")]);
+  // useEffect(() => {
+  //   if (props.statuscode == 200) {
+  //     props.history.push("/home");
+  //   }
+  // }, [props.statuscode]);
 
   return (
     <div className="login">
@@ -51,7 +51,9 @@ const Signin = props => {
             />
           </p>
 
+          {/* <NavLink to="/passports"> */}
           <ButtonContainer>Sign in</ButtonContainer>
+          {/* </NavLink> */}
         </form>
         <div className="signinTextContainer">
           <p className=" signinTextForMobile">Don't have an account?</p>
