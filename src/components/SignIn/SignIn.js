@@ -15,14 +15,14 @@ const Signin = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.postLogin(form);
+    props.postLogin(form, props);
   };
 
-  useEffect(() => {
-    if (window.localStorage.getItem("token")) {
-      props.history.push("/passports");
-    }
-  }, [props.history]);
+  // useEffect(() => {
+  //   if (props.statuscode == 200) {
+  //     props.history.push("/home");
+  //   }
+  // }, [props.statuscode]);
 
   return (
     <div className="login">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { postRegister } from "../../store/actions";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import "./SignUp.css";
 import { NavLink } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const SignUp = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.postRegister(form);
+    props.postRegister(form, props);
   };
 
   useEffect(() => {
