@@ -2,7 +2,7 @@ import React from "react";
 import "./HeaderCSS.css";
 import { HeaderButton } from "../styled-components/Button";
 import { Link } from "react-router-dom";
-import { Button, Dropdown, Menu } from "semantic-ui-react";
+import { Dropdown, Menu } from "semantic-ui-react";
 
 const options = [
   {
@@ -21,28 +21,26 @@ const options = [
   },
   {
     key: "settings",
-    icon: <img src="https://i.imgur.com/AUXhgEy.png" />,
-    text: "Settings",
+    icon: <img src="https://i.imgur.com/fV9RFr6.png" />,
+    text: "Restaurants",
     as: Link,
-    to: "/home"
+    to: "/restaurants"
   },
   {
     key: "help",
-    icon: <img src="https://imgur.com/3yaROlo" />,
+    icon: <img src="https://i.imgur.com/3yaROlo.png" />,
     text: "Help",
     as: Link,
-    to: "/privacypolicy"
+    to: "/con"
   },
   {
     key: "logout",
-    icon: <img src="https://i.imgur.com/AERjI0V.png" />,
+    icon: <img src="https://i.imgur.com/aSGAS6V.png" />,
     text: "Logout",
     as: Link,
-    to: "/signup"
+    to: "/signout"
   }
 ];
-
-// onClick={() => localStorage.removeItem("token")}
 
 const Header = () => {
   return (
@@ -67,13 +65,10 @@ const Header = () => {
           <HeaderButton to="/home">Login</HeaderButton>
         </div>
       ) : (
-        <div className="buttonGroup">
-          {/* <HeaderButton onClick={() => localStorage.removeItem("token")}>
-            Sign Out
-          </HeaderButton> */}
+        <div className="dropdownGroup">
           <div className="dropdown">
             <Menu compact className="menulist">
-              <Dropdown text="menu" options={options} simple item />
+              <Dropdown text="MENU" options={options} simple item />
             </Menu>
           </div>
         </div>

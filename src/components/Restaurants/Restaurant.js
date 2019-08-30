@@ -17,8 +17,6 @@ const RestaurantCard = styled.div`
 `;
 
 export default function Restaurant({ restaurant, index }) {
-  // console.log(restaurant);
-  // console.log(index);
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const starsCount = Math.round(
@@ -28,19 +26,8 @@ export default function Restaurant({ restaurant, index }) {
 
   const handleChange = e => {
     e.preventDefault();
-    console.log("restaurant", restaurant);
-    console.log(index);
     dispatch(setVisit(index));
   };
-  // if(restaurant.restaurant.featured_imag===null){
-  //restaurant.restaurant.featured_imag="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
-  //}
-
-  const HideInfo = styled.span`
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-  `;
 
   return (
     <Link
@@ -68,39 +55,43 @@ export default function Restaurant({ restaurant, index }) {
               style={{ maxHeight: "55px" }}
               className="subheader"
             >
-              <span>
-                {[...Array(price_range)].map((obj, index) => (
-                  <i
-                    className="fas fa-dollar-sign"
-                    key={`${obj}?index=${index}`}
-                  ></i>
-                ))}
-              </span>
-              &nbsp; &middot; &nbsp;
-              {restaurant.restaurant.cuisines} <br />
-              <span>
-                {[...Array(starsCount)].map((obj, index) => (
-                  <i
-                    className="fas fa-star stars"
-                    key={`${obj}?index=${index}`}
-                  />
-                ))}
-              </span>
-              <br />
+              <div>
+                <span>
+                  {[...Array(price_range)].map((obj, index) => (
+                    <i
+                      className="fas fa-dollar-sign"
+                      key={`${obj}?index=${index}`}
+                    ></i>
+                  ))}
+                </span>
+                &nbsp; &middot; &nbsp;
+                {restaurant.restaurant.cuisines} <br />
+                <span>
+                  {[...Array(starsCount)].map((obj, index) => (
+                    <i
+                      className="fas fa-star stars"
+                      key={`${obj}?index=${index}`}
+                    />
+                  ))}
+                </span>
+                <br />
+              </div>
               {state.restaurants[index].visited ? (
-                <Image
-                  style={{
-                    height: "150px",
-                    width: "150px",
-                    margin: "0",
-                    position: "relative",
-                    bottom: "50px",
-                    left: "150px"
-                  }}
-                  src="https://i.imgur.com/b5XLrth.png"
-                  className="sameSizeImages"
-                  onClick={handleChange}
-                />
+                <div>
+                  <Image
+                    // style={{
+                    //   height: "150px",
+                    //   width: "150px",
+                    //   margin: "0",
+                    //   position: "relative",
+                    //   bottom: "50px",
+                    //   left: "150px"
+                    // }}
+                    src="https://i.imgur.com/b5XLrth.png"
+                    className="sameSizeImages visitedStamp"
+                    onClick={handleChange}
+                  />
+                </div>
               ) : null}
             </Card.Description>
           </Card.Content>

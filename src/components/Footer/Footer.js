@@ -4,8 +4,6 @@ import "./Footer.css";
 import styled from "styled-components";
 
 export default function Footer() {
-  // Font type? Roboto
-
   const NavLinksbox = styled.div`
     display: flex;
     justify-content: center;
@@ -28,16 +26,6 @@ export default function Footer() {
     @media screen and (max-width: 500px) {
     }
   `;
-
-  // const BtnFooter = styled.div`
-  //   display: none;
-
-  //   @media screen and (max-width: 500px) {
-  //     display: flex;
-  //     justify-content: center;
-  //     background: white;
-  //   }
-  // `;
 
   return (
     <nav className="footer">

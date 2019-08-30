@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MyPassport from "./MyPassport";
 import { getPassports } from "../../../store/actions";
-// import { rootReducer, initialState } from "../store"
-// import { modalContainer, innerBox } from "./modalstyle";
-import {
-  CreatePassportButton,
-  DeletePassportButton,
-  HeaderButton,
-  ButtonContainer,
-  CheckitOutButton
-} from "../../styled-components/Button";
+import { CreatePassportButton } from "../../styled-components/Button";
 import PassportModal from "../../Modals/PassportModal";
 import "./MyPassports.css";
 
@@ -20,13 +12,6 @@ export default function MyPassports(props) {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  console.log("modal test:", modalOpen);
-
-  const deletePassport = e => {
-    e.preventDefault();
-    console.log("removal passport test", e);
-    dispatch({ type: "DELETE_PASSPORT" });
-  };
 
   const openModal = () => {
     setModalOpen(true);
@@ -53,10 +38,6 @@ export default function MyPassports(props) {
       <div className="mypassportsTitle">
         <h1>Your Passports</h1>
         <div className="btnContainer">
-          <div className="btn2">
-            <DeletePassportButton>Delete Passport</DeletePassportButton>
-          </div>
-
           {/* Add create Modal with button press */}
           <div className="btn1">
             <CreatePassportButton onClick={openModal}>
@@ -68,8 +49,8 @@ export default function MyPassports(props) {
 
       <p className="myPassportsContainer">
         {state.myPassports &&
-          state.myPassports.map(passport => (
-            <MyPassport address={passport} props={props} />
+          state.myPassports.map((passport, idx) => (
+            <MyPassport address={passport} props={props} idx={idx} />
           ))}
       </p>
       {modalOpen ? (

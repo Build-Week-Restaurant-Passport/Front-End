@@ -29,10 +29,6 @@ const BtnFooter = styled.div`
     padding: 20px;
   }
 `;
-const FlexSreachBarName = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 export default function Restaurants(props) {
   const state = useSelector(state => state);
@@ -66,7 +62,6 @@ export default function Restaurants(props) {
         .toLowerCase()
         .includes(categories.toLowerCase())
   );
-  console.log("restaurants", state.restaurants);
   return (
     <RestauransContainer>
       <div className="flex-searchbar">

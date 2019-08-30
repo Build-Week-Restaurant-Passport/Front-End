@@ -9,9 +9,9 @@ import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
 
 export default function Passports(props) {
   const dispatch = useDispatch();
-
+  const [cityname, setcityname] = useState({ cityname: "" });
   const [modalOpen, setModalOpen] = useState(false);
-  console.log("modal test:", modalOpen);
+  const [location, setLocation] = useState();
 
   const closeModal = () => {
     setModalOpen(false);
@@ -21,20 +21,16 @@ export default function Passports(props) {
     setModalOpen(true);
   };
 
-  const [address, setAddress] = useState("");
-  const [location, setLocation] = useState();
-  console.log("location", location);
+  // const [address, setAddress] = useState("");
 
   const handleChange = e => {
     e.preventDefault();
-    setAddress(e.target.value);
+    setcityname({ [e.target.name]: e.target.value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // dispatch(getCities(props, address));
     dispatch(addPassports(address));
-    // props.history.push("/mypassports");
   };
 
   const getLocation = e => {
@@ -49,9 +45,7 @@ export default function Passports(props) {
       lng: position.coords.longitude
     });
     if (location) {
-      dispatch(setLatLng(location));
-      // props.history.push("/mypassports");
-      return console.log("location inside showPosition", location);
+      return dispatch(setLatLng(location));
     }
   };
 
@@ -80,7 +74,7 @@ export default function Passports(props) {
             type="text"
             name="address"
             placeholder="Washington, DC"
-            value={address}
+            value={cityname.cityname}
           />
           <ButtonContainer
             className="create-btn"
@@ -92,7 +86,6 @@ export default function Passports(props) {
           </ButtonContainer>
         </form>
         <div className="h2-lines"></div>
-        {/* <Divider className="h2-lines" /> */}
         <h2 className="h2-position">or</h2>
         <a onClick={getLocation}>Use my current location</a>
         <p>(This will prompt you to enable your location services)</p>

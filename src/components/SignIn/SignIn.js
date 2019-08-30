@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 
 const Signin = props => {
   const [form, setForm] = useState({});
-  console.log(form, "FORM");
 
   const handleChange = e => {
     e.preventDefault();

@@ -5,7 +5,6 @@ import "./Contact.css";
 
 const ContactUs = ({ errors, touched, values, status }) => {
   const [contact, setContact] = useState([]);
-  console.log("this is touched", touched);
   useEffect(() => {
     if (status) {
       setContact([...contact, status]);

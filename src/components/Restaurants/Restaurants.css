@@ -25,6 +25,7 @@ h1 {
   color: black;
   margin-top: 0.5rem;
   font-family: "Roboto", sans-serif;
+  display: flex;
 }
 
 .form {
@@ -145,6 +146,13 @@ a.restaurantLink {
 .search.inverted.circular.link {
   margin-top: 0.5rem !important;
   margin-left: 1rem !important;
+}
+
+.visitedStamp {
+  width: 70px !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 @media screen and (max-width: 500px) {

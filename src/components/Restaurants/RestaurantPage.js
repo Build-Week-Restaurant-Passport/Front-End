@@ -17,7 +17,6 @@ const RestaurantReviewComments = styled.div`
 
 const RestaurantPage = props => {
   const state = useSelector(state => state);
-  console.log("restaurant page props", props);
   const id = props.match.params.restaurantID;
   const dispatch = useDispatch();
   const restaurant = props.location.restaurant;
@@ -33,15 +32,7 @@ const RestaurantPage = props => {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [restaurantInfo, setRestaurantInfo] = useState({});
-  const [reviews, setReviews] = useState(restaurantInfo.all_reviews);
   const [open, setOpen] = useState(false);
-
-  function isEmpty(obj) {
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) return false;
-    }
-    return true;
-  }
 
   useEffect(() => {
     axios
@@ -66,20 +57,15 @@ const RestaurantPage = props => {
 
   const openModal = () => {
     setOpen(true);
-    console.log(open);
   };
   const closeModal = () => {
     setOpen(false);
-    console.log(open);
   };
 
   const passportPunch = (index, bool) => {
-    console.log("bool:", bool);
     if (bool === true) {
-      console.log("if");
       localStorage.setItem(`${id}`, id);
     } else {
-      console.log("else");
       localStorage.removeItem(`${id}`);
     }
 

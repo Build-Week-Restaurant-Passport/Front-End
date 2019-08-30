@@ -11,12 +11,14 @@ import FormikContactUs from "../components/Pages/Contact";
 import Terms from "../components/Pages/Terms";
 import MyPassports from "../components/Passports/MyPassports/MyPassports.js";
 import RestaurantPage from "../components/Restaurants/RestaurantPage";
+import Signout from "../components/Nav/Signout";
 
 const Routes = () => {
   return (
     <div>
       <Route path="/home" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/signout" component={Signout} />
       <Route path="/privacypolicy" component={PrivacyPolicy} />
       <PrivateRoute path="/passports" component={Passports} />
       <PrivateRoute path="/mypassports" component={MyPassports} />

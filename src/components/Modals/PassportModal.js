@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Header,
-  Image,
-  Modal,
-  Dimmer,
-  Segment
-} from "semantic-ui-react";
-import { useSelector, useDispatch } from "react-redux";
-import { setLatLng, addPassports } from "../../store/actions";
+import { Modal, Dimmer, Segment } from "semantic-ui-react";
+import { useDispatch } from "react-redux";
+import { addPassports } from "../../store/actions";
 import "./PassportModal.css";
 import { ButtonContainer } from "../styled-components/Button";
 import CreatedModal from "./CreatedModal";
@@ -16,13 +9,10 @@ import CreatedModal from "./CreatedModal";
 // PassportModal goes to add passport on page /MyPassports
 
 const PassportModal = props => {
-  console.log("quick test:", props);
   const dispatch = useDispatch();
   const [active, setActive] = useState(true);
   const [cityname, setcityname] = useState({ cityname: "" });
   const [location, setLocation] = useState();
-  console.log("passport modal props", props);
-  console.log("props.createModalOpen", props.createModalOpen);
 
   const handleChange = e => {
     e.preventDefault();
@@ -43,11 +33,8 @@ const PassportModal = props => {
   };
   const handleSubmit = e => {
     props.openModal();
-    console.log("in submit handler");
     e.preventDefault();
-    // dispatch(getCities(props, address));
     dispatch(addPassports(cityname));
-    console.log("sub test:", props);
     props.history.push("/mypassports");
   };
   return (

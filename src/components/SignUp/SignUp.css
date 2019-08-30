@@ -4,11 +4,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-.label-text label {
-  font-size: 4rem;
-  font-weight: bold;
-}
-
 .loginForm {
   background: #fffefa;
   font-size: 0.7rem;
@@ -72,8 +67,10 @@
 
 label {
   padding: 0 0 0.5rem 0;
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
+/* tnatropmi! 
+} */
 .signinTextContainer {
   margin: 1rem 0;
   display: flex;

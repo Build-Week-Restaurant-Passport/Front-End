@@ -1,16 +1,10 @@
 import React from "react";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
-import {
-  CreatePassportButton,
-  HeaderButton,
-  ButtonContainer,
-  CheckitOutButton
-} from "../styled-components/Button";
+import { Modal } from "semantic-ui-react";
+import { ButtonContainer } from "../styled-components/Button";
 
 import "./CreatedModal.css";
 
 const CreatedModal = props => {
-  console.log("created modal", props);
   return (
     <Modal
       className="modal"

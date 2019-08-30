@@ -20,13 +20,8 @@ const SignUp = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.postRegister(form);
-    // if (form.password !== form.confirmPassword) {
-    //   alert("The passwords doesn't match");
-    //   return false; // The form won't submit
-    // } else return true; // The form will submit
   };
 
-  console.log("sign up form", form);
   return (
     <div className="login">
       <div className="formContainer">
@@ -51,7 +46,9 @@ const SignUp = props => {
             />
           </p>
           <p className="loginInputs">
-            <label style={{ fontWeight: "bold" }}>Last Name</label>
+            <label style={{ fontWeight: "bold", fontSize: "2rem" }}>
+              Last Name
+            </label>
             <input
               onChange={handleChange}
               type="text"
@@ -85,18 +82,6 @@ const SignUp = props => {
             />
           </p>
 
-          {/* 
-          <p className="loginInputs">
-            <label>Confirm Password</label>
-
-            <input
-              onChange={handleChange}
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={form.confirmPassword}
-            />
-          </p> */}
           <div className="privacyTextContainer">
             <p className=" privacyText">
               By clicking Sign Up, you agree to our

@@ -16,6 +16,9 @@ import {
   ADD_PASSPORTS_FAILURE,
   SET_LATLNG,
   SET_VISIT,
+  EDIT_PASSPORT,
+  EDIT_PASSPORT_SUCCESS,
+  EDIT_PASSPORT_FAILURE,
   DELETE_PASSPORT,
   DELETE_PASSPORT_SUCCESS,
   DELETE_PASSPORT_FAILURE
@@ -33,7 +36,6 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  console.log("state from reducer", state);
   switch (action.type) {
     case POST_DATA_START:
       return {
@@ -147,14 +149,12 @@ function rootReducer(state = initialState, action) {
         latlng: action.payload
       };
     case SET_VISIT:
-      console.log("restaurants array", state.restaurants);
       const temp = { ...state };
       temp.restaurants.map((el, index) => {
         if (index === action.payload.index) {
           temp.restaurants[index].visited = !temp.restaurants[index].visited;
         }
       });
-      console.log("temp", [...temp.restaurants]);
       return {
         ...state,
         restaurants: [...temp.restaurants]
@@ -162,16 +162,18 @@ function rootReducer(state = initialState, action) {
     case DELETE_PASSPORT:
       return {
         ...state,
-        myPassports: state.myPassports.filter(
-          ({ myPassports }) => !myPassports.id
-        ),
+        error: "launch error",
         isLoading: true
       };
     case DELETE_PASSPORT_SUCCESS:
+      console.log("Delete Reducer", action.payload.idx);
       return {
         ...state,
-        myPassports: action.payload,
-        error: action.payload,
+        myPassports: state.myPassports.filter(
+          (el, index) =>
+            state.myPassports[index] !== state.myPassports[action.payload]
+        ),
+        error: "",
         isLoading: false
       };
     case DELETE_PASSPORT_FAILURE:
