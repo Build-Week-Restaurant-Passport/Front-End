@@ -54,7 +54,7 @@ export default function Passports(props) {
     e.preventDefault();
     axios
       .get(
-        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${cityname.cityname}`
+        `https://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${cityname.cityname}`
       )
       .then(res => {
         dispatch(setLatLng(res.data.results[0].locations[0].latLng));

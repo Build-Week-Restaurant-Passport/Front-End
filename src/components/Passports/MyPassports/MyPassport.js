@@ -25,7 +25,7 @@ export default function MyPassport({ address, props, idx, id }) {
     e.preventDefault();
     axios
       .get(
-        `http://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address.cityname}`
+        `https://open.mapquestapi.com/geocoding/v1/address?key=iajMmFEnM0izgPOAvTgN9eoU8wof2AZ3&location=${address.cityname}`
       )
       .then(res => {
         dispatch(setLatLng(res.data.results[0].locations[0].latLng));
